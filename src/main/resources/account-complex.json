@@ -1,0 +1,83 @@
+{
+  "accountId": 2,
+  "accountHolderName": "Shubham",
+  "phoneNo": "9977488866",
+  "emailId": "Shubham@gmail.com",
+  "age": 23,
+  "gender": "MALE",
+  "interestRate": 4.5,
+  "balance": 31100,
+  "dateOfOpening": "2023/11/12",
+  "nominees": [
+    {
+      "nomineeId": 4,
+      "name": "mohan",
+      "govtId": "7681234edruyt",
+      "govtIdType": "pan",
+      "phoneNo": "47565",
+      "relation": "MOTHER"
+    },
+    {
+      "nomineeId": 6,
+      "name": "mohan",
+      "govtId": "7681234edruyt",
+      "govtIdType": "pan",
+      "phoneNo": "47565",
+      "relation": "MOTHER"
+    }
+  ],
+  "beneficiaries": [
+    {
+      "beneficiaryId": 18,
+      "beneficiaryName": "YASH",
+      "beneficiaryAccNo": 23,
+      "accountType": "SAVINGS",
+      "ifsc": "YASHU111"
+    }
+  ],
+  "transactions": [
+    {
+      "transactionId": 7,
+      "amount": 100,
+      "transactionType": "DEBIT",
+      "date": "2023-11-14",
+      "transactionStatus": "SUCCESSFUL",
+      "transactionRemarks": "done"
+    },
+    {
+      "transactionId": 10,
+      "amount": 10000,
+      "transactionType": "DEBIT",
+      "date": "2023-11-14",
+      "transactionStatus": "SUCCESSFUL",
+      "transactionRemarks": "done"
+    },
+    {
+      "transactionId": 14,
+      "amount": 10000,
+      "transactionType": "DEBIT",
+      "date": "2023-11-14",
+      "transactionStatus": "SUCCESSFUL",
+      "transactionRemarks": "done"
+    }
+  ],
+  "policies": [
+    {
+      "policyNumber": 17,
+      "policyName": "ICICI",
+      "policyPremiumAmount": 3444,
+      "policySumAssured": 6666,
+      "policyExpiryDate": "2023-10-13"
+    }
+  ],
+  "debitCard": {
+    "debitCardNumber": 1,
+    "issueDate": "2022-12-11",
+    "debitCardPin": 1245,
+    "debitCardExpiryDate": "2027-12-11",
+    "debitCardLimit": 12,
+    "debitCardStatus": "Pass"
+  },
+  "currentMinBalance": 500,
+  "currentFine": 500
+}

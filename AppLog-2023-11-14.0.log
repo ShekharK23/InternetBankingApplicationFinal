@@ -1,0 +1,584 @@
+2023-11-14 18:58:03 [INFO] - Starting InternetBankingApplicationTests using Java 17.0.7 on LIN-5CG04794W6 with PID 1532 (started by sbhainga in C:\Users\SBHAINGA\Desktop\BackUp\New\InternetBankingApp)
+2023-11-14 18:58:03 [DEBUG] - Running with Spring Boot v2.7.17, Spring v5.3.30
+2023-11-14 18:58:03 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 18:58:03 [DEBUG] - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@41c62850
+2023-11-14 18:58:06 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 18:58:06 [INFO] - Finished Spring Data repository scanning in 211 ms. Found 8 JPA repository interfaces.
+2023-11-14 18:58:08 [INFO] - HikariPool-1 - Starting...
+2023-11-14 18:58:08 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 18:58:09 [INFO] - HikariPool-1 - Start completed.
+2023-11-14 18:58:11 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 18:58:13 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 18:58:14 [DEBUG] - 59 mappings in 'requestMappingHandlerMapping'
+2023-11-14 18:58:14 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 18:58:15 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 18:58:15 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 18:58:15 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 18:58:15 [INFO] - Context refreshed
+2023-11-14 18:58:15 [INFO] - Found 1 custom documentation plugin(s)
+2023-11-14 18:58:15 [INFO] - Scanning for api listing references
+2023-11-14 18:58:16 [INFO] - Generating unique operation named: getAllMyAccTransactionsUsingGET_1
+2023-11-14 18:58:16 [INFO] - Generating unique operation named: listAllTransactionsUsingGET_1
+2023-11-14 18:58:16 [INFO] - Started InternetBankingApplicationTests in 13.729 seconds (JVM running for 15.993)
+2023-11-14 18:58:17 [DEBUG] - Closing org.springframework.web.context.support.GenericWebApplicationContext@41c62850, started on Tue Nov 14 18:58:03 IST 2023
+2023-11-14 18:58:17 [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 18:58:17 [INFO] - HikariPool-1 - Shutdown initiated...
+2023-11-14 18:58:17 [INFO] - HikariPool-1 - Shutdown completed.
+2023-11-14 18:58:52 [INFO] - Starting InternetBankingApplication using Java 17.0.7 on LIN-5CG04794W6 with PID 22400 (C:\Users\SBHAINGA\Desktop\BackUp\New\InternetBankingApp\target\classes started by sbhainga in C:\Users\SBHAINGA\Desktop\BackUp\New\InternetBankingApp)
+2023-11-14 18:58:52 [DEBUG] - Running with Spring Boot v2.7.17, Spring v5.3.30
+2023-11-14 18:58:52 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 18:58:52 [INFO] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 18:58:52 [INFO] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 18:58:54 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 18:58:55 [INFO] - Finished Spring Data repository scanning in 296 ms. Found 8 JPA repository interfaces.
+2023-11-14 18:58:56 [INFO] - Tomcat initialized with port(s): 5005 (http)
+2023-11-14 18:58:56 [INFO] - Starting service [Tomcat]
+2023-11-14 18:58:56 [INFO] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 18:58:57 [INFO] - Initializing Spring embedded WebApplicationContext
+2023-11-14 18:58:57 [INFO] - Root WebApplicationContext: initialization completed in 4577 ms
+2023-11-14 18:58:58 [INFO] - HikariPool-1 - Starting...
+2023-11-14 18:58:58 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 18:58:58 [INFO] - HikariPool-1 - Start completed.
+2023-11-14 18:59:01 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 18:59:03 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 18:59:03 [DEBUG] - 59 mappings in 'requestMappingHandlerMapping'
+2023-11-14 18:59:03 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 18:59:03 [INFO] - LiveReload server is running on port 35729
+2023-11-14 18:59:03 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 18:59:03 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 18:59:03 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 18:59:04 [INFO] - Tomcat started on port(s): 5005 (http) with context path ''
+2023-11-14 18:59:04 [INFO] - Context refreshed
+2023-11-14 18:59:04 [INFO] - Found 1 custom documentation plugin(s)
+2023-11-14 18:59:04 [INFO] - Scanning for api listing references
+2023-11-14 18:59:04 [INFO] - Generating unique operation named: getAllMyAccTransactionsUsingGET_1
+2023-11-14 18:59:04 [INFO] - Generating unique operation named: listAllTransactionsUsingGET_1
+2023-11-14 18:59:04 [INFO] - Started InternetBankingApplication in 13.641 seconds (JVM running for 15.145)
+2023-11-14 18:59:12 [INFO] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 18:59:12 [INFO] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 18:59:12 [DEBUG] - Detected StandardServletMultipartResolver
+2023-11-14 18:59:12 [DEBUG] - Detected AcceptHeaderLocaleResolver
+2023-11-14 18:59:12 [DEBUG] - Detected FixedThemeResolver
+2023-11-14 18:59:12 [DEBUG] - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6479fdec
+2023-11-14 18:59:12 [DEBUG] - Detected org.springframework.web.servlet.support.SessionFlashMapManager@1133c0b1
+2023-11-14 18:59:12 [DEBUG] - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-11-14 18:59:12 [INFO] - Completed initialization in 4 ms
+2023-11-14 18:59:12 [DEBUG] - POST "/customer/addNominee", parameters={}
+2023-11-14 18:59:12 [DEBUG] - Mapped to com.cg.iba.controller.CustomerRestController#addNominee(NomineeRequestSubmitDTO)
+2023-11-14 18:59:12 [DEBUG] - Read "application/json;charset=UTF-8" to [NomineeRequestSubmitDTO(name=asha, govtId=xx, govtIdType=12333333, phoneNo=99099898989, relation=MOT (truncated)...]
+2023-11-14 18:59:12 [DEBUG] - Using @ExceptionHandler com.cg.iba.exception.ServerSideValidations#handleException(Exception, WebRequest)
+2023-11-14 18:59:12 [DEBUG] - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 18:59:12 [DEBUG] - Writing [{phoneNo=Maximum 10 Numbers Should include}]
+2023-11-14 18:59:12 [WARN] - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.cg.iba.dto.NomineeResponseDTO> com.cg.iba.controller.CustomerRestController.addNominee(com.cg.iba.dto.NomineeRequestSubmitDTO) throws com.cg.iba.exception.InvalidDetailsException: [Field error in object 'nomineeRequestSubmitDTO' on field 'phoneNo': rejected value [99099898989]; codes [Size.nomineeRequestSubmitDTO.phoneNo,Size.phoneNo,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [nomineeRequestSubmitDTO.phoneNo,phoneNo]; arguments []; default message [phoneNo],10,0]; default message [Maximum 10 Numbers Should include]] ]
+2023-11-14 18:59:12 [DEBUG] - Completed 400 BAD_REQUEST
+2023-11-14 19:02:25 [DEBUG] - POST "/customer/addNominee", parameters={}
+2023-11-14 19:02:25 [DEBUG] - Mapped to com.cg.iba.controller.CustomerRestController#addNominee(NomineeRequestSubmitDTO)
+2023-11-14 19:02:25 [DEBUG] - Read "application/json;charset=UTF-8" to [NomineeRequestSubmitDTO(name=asha, govtId=xx, govtIdType=12333333, phoneNo=99099898989, relation=MOT (truncated)...]
+2023-11-14 19:02:25 [DEBUG] - Using @ExceptionHandler com.cg.iba.exception.ServerSideValidations#handleException(Exception, WebRequest)
+2023-11-14 19:02:25 [DEBUG] - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 19:02:25 [DEBUG] - Writing [{phoneNo=Maximum 10 Numbers Should include}]
+2023-11-14 19:02:25 [WARN] - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.cg.iba.dto.NomineeResponseDTO> com.cg.iba.controller.CustomerRestController.addNominee(com.cg.iba.dto.NomineeRequestSubmitDTO) throws com.cg.iba.exception.InvalidDetailsException: [Field error in object 'nomineeRequestSubmitDTO' on field 'phoneNo': rejected value [99099898989]; codes [Size.nomineeRequestSubmitDTO.phoneNo,Size.phoneNo,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [nomineeRequestSubmitDTO.phoneNo,phoneNo]; arguments []; default message [phoneNo],10,0]; default message [Maximum 10 Numbers Should include]] ]
+2023-11-14 19:02:25 [DEBUG] - Completed 400 BAD_REQUEST
+2023-11-14 19:03:35 [INFO] - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-11-14 19:03:35 [INFO] - Stopping service [Tomcat]
+2023-11-14 19:03:35 [INFO] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-11-14 19:03:35 [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 19:03:35 [INFO] - HikariPool-1 - Shutdown initiated...
+2023-11-14 19:03:35 [INFO] - HikariPool-1 - Shutdown completed.
+2023-11-14 19:03:36 [INFO] - Starting InternetBankingApplication using Java 17.0.7 on LIN-5CG04794W6 with PID 22400 (C:\Users\SBHAINGA\Desktop\BackUp\New\InternetBankingApp\target\classes started by sbhainga in C:\Users\SBHAINGA\Desktop\BackUp\New\InternetBankingApp)
+2023-11-14 19:03:36 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 19:03:36 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 19:03:36 [INFO] - Finished Spring Data repository scanning in 97 ms. Found 8 JPA repository interfaces.
+2023-11-14 19:03:37 [INFO] - Tomcat initialized with port(s): 5005 (http)
+2023-11-14 19:03:37 [INFO] - Starting service [Tomcat]
+2023-11-14 19:03:37 [INFO] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 19:03:37 [INFO] - Initializing Spring embedded WebApplicationContext
+2023-11-14 19:03:37 [INFO] - Root WebApplicationContext: initialization completed in 1160 ms
+2023-11-14 19:03:37 [INFO] - HikariPool-2 - Starting...
+2023-11-14 19:03:37 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 19:03:37 [INFO] - HikariPool-2 - Start completed.
+2023-11-14 19:03:37 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 19:03:38 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 19:03:38 [DEBUG] - 59 mappings in 'requestMappingHandlerMapping'
+2023-11-14 19:03:38 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 19:03:38 [INFO] - LiveReload server is running on port 35729
+2023-11-14 19:03:38 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 19:03:38 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 19:03:38 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 19:03:38 [INFO] - Tomcat started on port(s): 5005 (http) with context path ''
+2023-11-14 19:03:38 [INFO] - Context refreshed
+2023-11-14 19:03:38 [INFO] - Found 1 custom documentation plugin(s)
+2023-11-14 19:03:38 [INFO] - Scanning for api listing references
+2023-11-14 19:03:38 [INFO] - Generating unique operation named: getAllMyAccTransactionsUsingGET_1
+2023-11-14 19:03:38 [INFO] - Generating unique operation named: listAllTransactionsUsingGET_1
+2023-11-14 19:03:38 [INFO] - Started InternetBankingApplication in 2.859 seconds (JVM running for 288.977)
+2023-11-14 19:03:38 [INFO] - Condition evaluation unchanged
+2023-11-14 21:02:02 [INFO] - Starting InternetBankingApplication using Java 17.0.4.1 on LIN-5CG122696X with PID 4380 (C:\Users\STANAJIK\Desktop\Sprint1\InternetBankingApp\target\classes started by stanajik in C:\Users\STANAJIK\Desktop\Sprint1\InternetBankingApp)
+2023-11-14 21:02:02 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 21:02:02 [INFO] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 21:02:02 [INFO] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 21:02:04 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 21:02:05 [INFO] - Finished Spring Data repository scanning in 168 ms. Found 8 JPA repository interfaces.
+2023-11-14 21:02:06 [INFO] - Tomcat initialized with port(s): 5005 (http)
+2023-11-14 21:02:06 [INFO] - Starting service [Tomcat]
+2023-11-14 21:02:06 [INFO] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 21:02:06 [INFO] - Initializing Spring embedded WebApplicationContext
+2023-11-14 21:02:06 [INFO] - Root WebApplicationContext: initialization completed in 4016 ms
+2023-11-14 21:02:07 [INFO] - HikariPool-1 - Starting...
+2023-11-14 21:02:07 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 21:02:08 [INFO] - HikariPool-1 - Start completed.
+2023-11-14 21:02:09 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 21:02:11 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 21:02:11 [DEBUG] - 59 mappings in 'requestMappingHandlerMapping'
+2023-11-14 21:02:11 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 21:02:11 [INFO] - LiveReload server is running on port 35729
+2023-11-14 21:02:11 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 21:02:11 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 21:02:11 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 21:02:11 [INFO] - Tomcat started on port(s): 5005 (http) with context path ''
+2023-11-14 21:02:11 [INFO] - Context refreshed
+2023-11-14 21:02:11 [INFO] - Found 1 custom documentation plugin(s)
+2023-11-14 21:02:11 [INFO] - Scanning for api listing references
+2023-11-14 21:02:12 [INFO] - Generating unique operation named: getAllMyAccTransactionsUsingGET_1
+2023-11-14 21:02:12 [INFO] - Generating unique operation named: listAllTransactionsUsingGET_1
+2023-11-14 21:02:12 [INFO] - Started InternetBankingApplication in 10.613 seconds (JVM running for 11.886)
+2023-11-14 21:36:41 [INFO] - Starting InternetBankingApplicationTests using Java 17.0.4.1 on LIN-5CG122696X with PID 4324 (started by stanajik in C:\Users\STANAJIK\Desktop\Sprint1\InternetBankingApp)
+2023-11-14 21:36:41 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 21:36:41 [DEBUG] - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@17f460bb
+2023-11-14 21:36:43 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 21:36:43 [INFO] - Finished Spring Data repository scanning in 145 ms. Found 8 JPA repository interfaces.
+2023-11-14 21:36:44 [INFO] - HikariPool-1 - Starting...
+2023-11-14 21:36:44 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 21:36:45 [INFO] - HikariPool-1 - Start completed.
+2023-11-14 21:36:46 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 21:36:47 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 21:36:48 [DEBUG] - 59 mappings in 'requestMappingHandlerMapping'
+2023-11-14 21:36:48 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 21:36:48 [INFO] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@65689000, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@441d3ddf, org.springframework.security.web.context.SecurityContextPersistenceFilter@53f18591, org.springframework.security.web.header.HeaderWriterFilter@2aadeb31, org.springframework.security.web.authentication.logout.LogoutFilter@18ada4e1, com.cg.iba.security.JWTAuthenticationFilter@20724c21, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@78a46d7b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@56adb75e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@420c9959, org.springframework.security.web.session.SessionManagementFilter@530aa75c, org.springframework.security.web.access.ExceptionTranslationFilter@622c658d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@14b4f462]
+2023-11-14 21:36:49 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 21:36:49 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 21:36:49 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 21:36:49 [INFO] - Context refreshed
+2023-11-14 21:36:49 [INFO] - Found 1 custom documentation plugin(s)
+2023-11-14 21:36:49 [INFO] - Scanning for api listing references
+2023-11-14 21:36:50 [INFO] - Generating unique operation named: getAllMyAccTransactionsUsingGET_1
+2023-11-14 21:36:50 [INFO] - Generating unique operation named: listAllTransactionsUsingGET_1
+2023-11-14 21:36:50 [INFO] - Started InternetBankingApplicationTests in 9.048 seconds (JVM running for 10.622)
+2023-11-14 21:36:50 [DEBUG] - Closing org.springframework.web.context.support.GenericWebApplicationContext@17f460bb, started on Tue Nov 14 21:36:41 IST 2023
+2023-11-14 21:36:50 [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 21:36:50 [INFO] - HikariPool-1 - Shutdown initiated...
+2023-11-14 21:36:50 [INFO] - HikariPool-1 - Shutdown completed.
+2023-11-14 21:37:45 [INFO] - Starting InternetBankingApplication using Java 17.0.4.1 on LIN-5CG122696X with PID 9432 (C:\Users\STANAJIK\Desktop\Sprint1\InternetBankingApp\target\classes started by stanajik in C:\Users\STANAJIK\Desktop\Sprint1\InternetBankingApp)
+2023-11-14 21:37:45 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 21:37:46 [INFO] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 21:37:46 [INFO] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 21:37:48 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 21:37:48 [INFO] - Finished Spring Data repository scanning in 221 ms. Found 8 JPA repository interfaces.
+2023-11-14 21:37:49 [INFO] - Tomcat initialized with port(s): 5005 (http)
+2023-11-14 21:37:49 [INFO] - Starting service [Tomcat]
+2023-11-14 21:37:49 [INFO] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 21:37:50 [INFO] - Initializing Spring embedded WebApplicationContext
+2023-11-14 21:37:50 [INFO] - Root WebApplicationContext: initialization completed in 4030 ms
+2023-11-14 21:37:50 [INFO] - HikariPool-1 - Starting...
+2023-11-14 21:37:50 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 21:37:51 [INFO] - HikariPool-1 - Start completed.
+2023-11-14 21:37:52 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 21:37:53 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 21:37:54 [DEBUG] - 59 mappings in 'requestMappingHandlerMapping'
+2023-11-14 21:37:54 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 21:37:54 [INFO] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@53bfeaf4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22670f83, org.springframework.security.web.context.SecurityContextPersistenceFilter@3473722e, org.springframework.security.web.header.HeaderWriterFilter@c18d223, org.springframework.security.web.authentication.logout.LogoutFilter@5d9618af, com.cg.iba.security.JWTAuthenticationFilter@7724fcb7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7f36060c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2044eb90, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@34e97dae, org.springframework.security.web.session.SessionManagementFilter@3a0d511d, org.springframework.security.web.access.ExceptionTranslationFilter@1557cfa2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@491246ff]
+2023-11-14 21:37:54 [INFO] - LiveReload server is running on port 35729
+2023-11-14 21:37:54 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 21:37:54 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 21:37:54 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 21:37:54 [INFO] - Tomcat started on port(s): 5005 (http) with context path ''
+2023-11-14 21:37:54 [INFO] - Context refreshed
+2023-11-14 21:37:55 [INFO] - Found 1 custom documentation plugin(s)
+2023-11-14 21:37:55 [INFO] - Scanning for api listing references
+2023-11-14 21:37:55 [INFO] - Generating unique operation named: getAllMyAccTransactionsUsingGET_1
+2023-11-14 21:37:55 [INFO] - Generating unique operation named: listAllTransactionsUsingGET_1
+2023-11-14 21:37:55 [INFO] - Started InternetBankingApplication in 10.398 seconds (JVM running for 11.476)
+2023-11-14 21:38:11 [INFO] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 21:38:11 [INFO] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 21:38:11 [DEBUG] - Detected StandardServletMultipartResolver
+2023-11-14 21:38:11 [DEBUG] - Detected AcceptHeaderLocaleResolver
+2023-11-14 21:38:11 [DEBUG] - Detected FixedThemeResolver
+2023-11-14 21:38:11 [DEBUG] - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1d698627
+2023-11-14 21:38:11 [DEBUG] - Detected org.springframework.web.servlet.support.SessionFlashMapManager@59403bb0
+2023-11-14 21:38:11 [DEBUG] - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-11-14 21:38:11 [INFO] - Completed initialization in 19 ms
+2023-11-14 21:38:11 [DEBUG] - GET "/swagger-ui.html", parameters={}
+2023-11-14 21:38:11 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2023-11-14 21:38:11 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:12 [DEBUG] - GET "/webjars/springfox-swagger-ui/springfox.css?v=2.9.2", parameters={masked}
+2023-11-14 21:38:12 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:38:12 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:12 [DEBUG] - GET "/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2", parameters={masked}
+2023-11-14 21:38:12 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:38:12 [DEBUG] - GET "/webjars/springfox-swagger-ui/springfox.js?v=2.9.2", parameters={masked}
+2023-11-14 21:38:12 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:38:12 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:12 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:12 [DEBUG] - GET "/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2", parameters={masked}
+2023-11-14 21:38:12 [DEBUG] - GET "/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2", parameters={masked}
+2023-11-14 21:38:12 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:38:12 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:38:12 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:12 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:12 [DEBUG] - GET "/swagger-resources/configuration/ui", parameters={}
+2023-11-14 21:38:12 [DEBUG] - Mapped to springfox.documentation.swagger.web.ApiResourceController#uiConfiguration()
+2023-11-14 21:38:12 [DEBUG] - Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 21:38:12 [DEBUG] - Writing [springfox.documentation.swagger.web.UiConfiguration@47bb7b36]
+2023-11-14 21:38:12 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:12 [DEBUG] - GET "/swagger-resources/configuration/security", parameters={}
+2023-11-14 21:38:12 [DEBUG] - Mapped to springfox.documentation.swagger.web.ApiResourceController#securityConfiguration()
+2023-11-14 21:38:12 [DEBUG] - Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 21:38:12 [DEBUG] - Writing [springfox.documentation.swagger.web.SecurityConfiguration@1e989a65]
+2023-11-14 21:38:12 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:12 [DEBUG] - GET "/swagger-resources", parameters={}
+2023-11-14 21:38:12 [DEBUG] - Mapped to springfox.documentation.swagger.web.ApiResourceController#swaggerResources()
+2023-11-14 21:38:12 [DEBUG] - Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 21:38:12 [DEBUG] - Writing [[springfox.documentation.swagger.web.SwaggerResource@2dc16630]]
+2023-11-14 21:38:12 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:12 [DEBUG] - GET "/v2/api-docs", parameters={}
+2023-11-14 21:38:12 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2", parameters={}
+2023-11-14 21:38:12 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:38:12 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:13 [DEBUG] - Using 'application/json', given [application/json, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 21:38:13 [DEBUG] - Writing [springfox.documentation.spring.web.json.Json@39c1aec7]
+2023-11-14 21:38:13 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:13 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2", parameters={}
+2023-11-14 21:38:13 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2", parameters={}
+2023-11-14 21:38:13 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:38:13 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2", parameters={}
+2023-11-14 21:38:13 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:38:13 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:38:13 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:13 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:13 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:36 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2", parameters={}
+2023-11-14 21:38:36 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:38:36 [DEBUG] - Completed 200 OK
+2023-11-14 21:38:38 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2", parameters={}
+2023-11-14 21:38:38 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:38:38 [DEBUG] - Completed 200 OK
+2023-11-14 21:39:01 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2", parameters={}
+2023-11-14 21:39:01 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 21:39:01 [DEBUG] - Completed 200 OK
+2023-11-14 21:39:21 [DEBUG] - POST "/user/login", parameters={}
+2023-11-14 21:39:21 [DEBUG] - Mapped to com.cg.iba.controller.UserRestController#doLogin(UserRequestSubmitDTO)
+2023-11-14 21:39:21 [DEBUG] - Read "application/json;charset=UTF-8" to [UserRequestSubmitDTO(userName=Rushikesh, password=1234567, role=ADMIN)]
+2023-11-14 21:39:22 [DEBUG] - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 21:39:22 [DEBUG] - Writing [JWTResponseDTO(token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSdXNoaWtlc2giLCJleHAiOjE3MDAwNjQ1NjIsImlhdCI6MT (truncated)...]
+2023-11-14 21:39:22 [DEBUG] - Completed 200 OK
+2023-11-14 21:41:18 [INFO] - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-11-14 21:41:19 [INFO] - Stopping service [Tomcat]
+2023-11-14 21:41:19 [INFO] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-11-14 21:41:19 [WARN] - The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-11-14 21:41:19 [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 21:41:19 [INFO] - HikariPool-1 - Shutdown initiated...
+2023-11-14 21:41:19 [INFO] - HikariPool-1 - Shutdown completed.
+2023-11-14 21:41:19 [INFO] - Starting InternetBankingApplication using Java 17.0.4.1 on LIN-5CG122696X with PID 9432 (C:\Users\STANAJIK\Desktop\Sprint1\InternetBankingApp\target\classes started by stanajik in C:\Users\STANAJIK\Desktop\Sprint1\InternetBankingApp)
+2023-11-14 21:41:19 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 21:41:20 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 21:41:20 [INFO] - Finished Spring Data repository scanning in 85 ms. Found 8 JPA repository interfaces.
+2023-11-14 21:41:20 [INFO] - Tomcat initialized with port(s): 5005 (http)
+2023-11-14 21:41:20 [INFO] - Starting service [Tomcat]
+2023-11-14 21:41:20 [INFO] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 21:41:20 [INFO] - Initializing Spring embedded WebApplicationContext
+2023-11-14 21:41:20 [INFO] - Root WebApplicationContext: initialization completed in 1110 ms
+2023-11-14 21:41:20 [INFO] - HikariPool-2 - Starting...
+2023-11-14 21:41:20 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 21:41:20 [INFO] - HikariPool-2 - Start completed.
+2023-11-14 21:41:20 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 21:41:21 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 21:41:21 [DEBUG] - 59 mappings in 'requestMappingHandlerMapping'
+2023-11-14 21:41:21 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 21:41:21 [INFO] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@61448152, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2384ee27, org.springframework.security.web.context.SecurityContextPersistenceFilter@39e08ed4, org.springframework.security.web.header.HeaderWriterFilter@6d8c16c3, org.springframework.security.web.authentication.logout.LogoutFilter@53cb4014, com.cg.iba.security.JWTAuthenticationFilter@422ad27, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63d48587, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ee3ad30, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19a5c6f9, org.springframework.security.web.session.SessionManagementFilter@18b30618, org.springframework.security.web.access.ExceptionTranslationFilter@2ebe9a1d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3f08b73a]
+2023-11-14 21:41:21 [INFO] - LiveReload server is running on port 35729
+2023-11-14 21:41:21 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 21:41:21 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 21:41:21 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 21:41:21 [INFO] - Tomcat started on port(s): 5005 (http) with context path ''
+2023-11-14 21:41:21 [INFO] - Context refreshed
+2023-11-14 21:41:21 [INFO] - Found 1 custom documentation plugin(s)
+2023-11-14 21:41:21 [INFO] - Scanning for api listing references
+2023-11-14 21:41:22 [INFO] - Generating unique operation named: getAllMyAccTransactionsUsingGET_1
+2023-11-14 21:41:22 [INFO] - Generating unique operation named: listAllTransactionsUsingGET_1
+2023-11-14 21:41:22 [INFO] - Started InternetBankingApplication in 2.964 seconds (JVM running for 218.131)
+2023-11-14 21:41:22 [INFO] - Condition evaluation unchanged
+2023-11-14 23:13:06 [INFO] - Starting InternetBankingApplication using Java 17.0.7 on LIN-5CG04794W6 with PID 10040 (C:\Users\SBHAINGA\Desktop\Sprint Project With JWT\InternetBankingApp\target\classes started by sbhainga in C:\Users\SBHAINGA\Desktop\Sprint Project With JWT\InternetBankingApp)
+2023-11-14 23:13:06 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 23:13:07 [INFO] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 23:13:07 [INFO] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 23:13:08 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 23:13:08 [INFO] - Finished Spring Data repository scanning in 143 ms. Found 8 JPA repository interfaces.
+2023-11-14 23:13:09 [INFO] - Tomcat initialized with port(s): 5005 (http)
+2023-11-14 23:13:09 [INFO] - Starting service [Tomcat]
+2023-11-14 23:13:09 [INFO] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 23:13:09 [INFO] - Initializing Spring embedded WebApplicationContext
+2023-11-14 23:13:09 [INFO] - Root WebApplicationContext: initialization completed in 2407 ms
+2023-11-14 23:13:09 [INFO] - HikariPool-1 - Starting...
+2023-11-14 23:13:10 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 23:13:10 [INFO] - HikariPool-1 - Start completed.
+2023-11-14 23:13:11 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 23:13:12 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 23:13:12 [DEBUG] - 60 mappings in 'requestMappingHandlerMapping'
+2023-11-14 23:13:12 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 23:13:12 [INFO] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@ad9a422, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26100bff, org.springframework.security.web.context.SecurityContextPersistenceFilter@3158efe8, org.springframework.security.web.header.HeaderWriterFilter@18ab8790, org.springframework.security.web.authentication.logout.LogoutFilter@7ad77d50, com.cg.iba.security.JWTAuthenticationFilter@1c1b9d2c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c3ebd85, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e8e5b4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@113827ba, org.springframework.security.web.session.SessionManagementFilter@a27adf7, org.springframework.security.web.access.ExceptionTranslationFilter@47c8af3d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@340c51c3]
+2023-11-14 23:13:12 [INFO] - LiveReload server is running on port 35729
+2023-11-14 23:13:12 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 23:13:13 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 23:13:13 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 23:13:13 [INFO] - Tomcat started on port(s): 5005 (http) with context path ''
+2023-11-14 23:13:13 [INFO] - Context refreshed
+2023-11-14 23:13:13 [INFO] - Found 1 custom documentation plugin(s)
+2023-11-14 23:13:13 [INFO] - Scanning for api listing references
+2023-11-14 23:13:13 [INFO] - Generating unique operation named: getAllMyAccTransactionsUsingGET_1
+2023-11-14 23:13:13 [INFO] - Generating unique operation named: listAllTransactionsUsingGET_1
+2023-11-14 23:13:13 [INFO] - Started InternetBankingApplication in 7.439 seconds (JVM running for 8.097)
+2023-11-14 23:13:59 [INFO] - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-11-14 23:13:59 [INFO] - Stopping service [Tomcat]
+2023-11-14 23:13:59 [WARN] - The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-11-14 23:13:59 [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 23:13:59 [INFO] - HikariPool-1 - Shutdown initiated...
+2023-11-14 23:13:59 [INFO] - HikariPool-1 - Shutdown completed.
+2023-11-14 23:13:59 [INFO] - Starting InternetBankingApplication using Java 17.0.7 on LIN-5CG04794W6 with PID 10040 (C:\Users\SBHAINGA\Desktop\Sprint Project With JWT\InternetBankingApp\target\classes started by sbhainga in C:\Users\SBHAINGA\Desktop\Sprint Project With JWT\InternetBankingApp)
+2023-11-14 23:13:59 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 23:13:59 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 23:13:59 [INFO] - Finished Spring Data repository scanning in 84 ms. Found 8 JPA repository interfaces.
+2023-11-14 23:14:00 [INFO] - Tomcat initialized with port(s): 5005 (http)
+2023-11-14 23:14:00 [INFO] - Starting service [Tomcat]
+2023-11-14 23:14:00 [INFO] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 23:14:00 [INFO] - Initializing Spring embedded WebApplicationContext
+2023-11-14 23:14:00 [INFO] - Root WebApplicationContext: initialization completed in 799 ms
+2023-11-14 23:14:00 [INFO] - HikariPool-2 - Starting...
+2023-11-14 23:14:00 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 23:14:00 [INFO] - HikariPool-2 - Start completed.
+2023-11-14 23:14:01 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 23:14:01 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 23:14:01 [DEBUG] - 60 mappings in 'requestMappingHandlerMapping'
+2023-11-14 23:14:01 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 23:14:01 [INFO] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@38ee0668, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5756327e, org.springframework.security.web.context.SecurityContextPersistenceFilter@458f65f8, org.springframework.security.web.header.HeaderWriterFilter@5f8bb0db, org.springframework.security.web.authentication.logout.LogoutFilter@1aa9abb1, com.cg.iba.security.JWTAuthenticationFilter@5c516d04, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d12c70a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f1da31b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a9dd441, org.springframework.security.web.session.SessionManagementFilter@6589c10b, org.springframework.security.web.access.ExceptionTranslationFilter@2c2c9f3c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@ac879f9]
+2023-11-14 23:14:01 [INFO] - LiveReload server is running on port 35729
+2023-11-14 23:14:01 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 23:14:01 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 23:14:01 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 23:14:01 [INFO] - Tomcat started on port(s): 5005 (http) with context path ''
+2023-11-14 23:14:01 [INFO] - Context refreshed
+2023-11-14 23:14:01 [INFO] - Found 1 custom documentation plugin(s)
+2023-11-14 23:14:01 [INFO] - Scanning for api listing references
+2023-11-14 23:14:01 [INFO] - Generating unique operation named: getAllMyAccTransactionsUsingGET_1
+2023-11-14 23:14:01 [INFO] - Generating unique operation named: listAllTransactionsUsingGET_1
+2023-11-14 23:14:01 [INFO] - Started InternetBankingApplication in 2.429 seconds (JVM running for 56.062)
+2023-11-14 23:14:01 [INFO] - Condition evaluation unchanged
+2023-11-14 23:15:05 [INFO] - Starting InternetBankingApplication using Java 17.0.7 on LIN-5CG04794W6 with PID 11104 (C:\Users\SBHAINGA\Desktop\Sprint Project With JWT\InternetBankingApp\target\classes started by sbhainga in C:\Users\SBHAINGA\Desktop\Sprint Project With JWT\InternetBankingApp)
+2023-11-14 23:15:05 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 23:15:05 [INFO] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 23:15:05 [INFO] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 23:15:06 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 23:15:07 [INFO] - Finished Spring Data repository scanning in 127 ms. Found 8 JPA repository interfaces.
+2023-11-14 23:15:08 [INFO] - Tomcat initialized with port(s): 5005 (http)
+2023-11-14 23:15:08 [INFO] - Starting service [Tomcat]
+2023-11-14 23:15:08 [INFO] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 23:15:08 [INFO] - Initializing Spring embedded WebApplicationContext
+2023-11-14 23:15:08 [INFO] - Root WebApplicationContext: initialization completed in 2364 ms
+2023-11-14 23:15:08 [INFO] - HikariPool-1 - Starting...
+2023-11-14 23:15:08 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 23:15:09 [INFO] - HikariPool-1 - Start completed.
+2023-11-14 23:15:10 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 23:15:11 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 23:15:11 [DEBUG] - 60 mappings in 'requestMappingHandlerMapping'
+2023-11-14 23:15:11 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 23:15:11 [INFO] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@417f3438, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15d97b43, org.springframework.security.web.context.SecurityContextPersistenceFilter@5bd7b694, org.springframework.security.web.header.HeaderWriterFilter@7f8559a, org.springframework.security.web.authentication.logout.LogoutFilter@52e053dc, com.cg.iba.security.JWTAuthenticationFilter@27d1f45d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79f7b655, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@789dcac6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c227219, org.springframework.security.web.session.SessionManagementFilter@6326e37e, org.springframework.security.web.access.ExceptionTranslationFilter@2afadc37, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@662b13e6]
+2023-11-14 23:15:11 [WARN] - Unable to start LiveReload server
+2023-11-14 23:15:11 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 23:15:12 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 23:15:12 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 23:15:12 [WARN] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 5005 is already in use
+2023-11-14 23:15:12 [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 23:15:12 [INFO] - HikariPool-1 - Shutdown initiated...
+2023-11-14 23:15:12 [INFO] - HikariPool-1 - Shutdown completed.
+2023-11-14 23:15:12 [INFO] - Stopping service [Tomcat]
+2023-11-14 23:15:12 [INFO] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-11-14 23:15:12 [ERROR] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 5005 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 5005 or configure this application to listen on another port.
+
+2023-11-14 23:15:19 [INFO] - Starting InternetBankingApplication using Java 17.0.7 on LIN-5CG04794W6 with PID 19656 (C:\Users\SBHAINGA\Desktop\Sprint Project With JWT\InternetBankingApp\target\classes started by sbhainga in C:\Users\SBHAINGA\Desktop\Sprint Project With JWT\InternetBankingApp)
+2023-11-14 23:15:19 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 23:15:19 [INFO] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 23:15:19 [INFO] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 23:15:21 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 23:15:21 [INFO] - Finished Spring Data repository scanning in 109 ms. Found 8 JPA repository interfaces.
+2023-11-14 23:15:22 [INFO] - Tomcat initialized with port(s): 5005 (http)
+2023-11-14 23:15:22 [INFO] - Starting service [Tomcat]
+2023-11-14 23:15:22 [INFO] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 23:15:22 [INFO] - Initializing Spring embedded WebApplicationContext
+2023-11-14 23:15:22 [INFO] - Root WebApplicationContext: initialization completed in 2329 ms
+2023-11-14 23:15:22 [INFO] - HikariPool-1 - Starting...
+2023-11-14 23:15:22 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 23:15:23 [INFO] - HikariPool-1 - Start completed.
+2023-11-14 23:15:25 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 23:15:26 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 23:15:26 [DEBUG] - 60 mappings in 'requestMappingHandlerMapping'
+2023-11-14 23:15:26 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 23:15:26 [INFO] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1e73a21e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@193f799f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d23d4c0, org.springframework.security.web.header.HeaderWriterFilter@2cac2e36, org.springframework.security.web.authentication.logout.LogoutFilter@3e36b9f7, com.cg.iba.security.JWTAuthenticationFilter@e00ebbe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7dfe3881, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4c4bc4b4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49a708f4, org.springframework.security.web.session.SessionManagementFilter@612544d1, org.springframework.security.web.access.ExceptionTranslationFilter@2a2aa1cd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7bde41d9]
+2023-11-14 23:15:27 [INFO] - LiveReload server is running on port 35729
+2023-11-14 23:15:27 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 23:15:27 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 23:15:27 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 23:15:27 [INFO] - Tomcat started on port(s): 5005 (http) with context path ''
+2023-11-14 23:15:27 [INFO] - Context refreshed
+2023-11-14 23:15:27 [INFO] - Found 1 custom documentation plugin(s)
+2023-11-14 23:15:27 [INFO] - Scanning for api listing references
+2023-11-14 23:15:27 [INFO] - Generating unique operation named: getAllMyAccTransactionsUsingGET_1
+2023-11-14 23:15:27 [INFO] - Generating unique operation named: listAllTransactionsUsingGET_1
+2023-11-14 23:15:27 [INFO] - Started InternetBankingApplication in 8.449 seconds (JVM running for 9.126)
+2023-11-14 23:16:08 [INFO] - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-11-14 23:16:08 [INFO] - Stopping service [Tomcat]
+2023-11-14 23:16:08 [WARN] - The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.7/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.7/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.7/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+2023-11-14 23:16:08 [INFO] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 23:16:08 [INFO] - HikariPool-1 - Shutdown initiated...
+2023-11-14 23:16:08 [INFO] - HikariPool-1 - Shutdown completed.
+2023-11-14 23:16:09 [INFO] - Starting InternetBankingApplication using Java 17.0.7 on LIN-5CG04794W6 with PID 19656 (C:\Users\SBHAINGA\Desktop\Sprint Project With JWT\InternetBankingApp\target\classes started by sbhainga in C:\Users\SBHAINGA\Desktop\Sprint Project With JWT\InternetBankingApp)
+2023-11-14 23:16:09 [INFO] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 23:16:09 [INFO] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-14 23:16:09 [INFO] - Finished Spring Data repository scanning in 58 ms. Found 8 JPA repository interfaces.
+2023-11-14 23:16:09 [INFO] - Tomcat initialized with port(s): 5005 (http)
+2023-11-14 23:16:09 [INFO] - Starting service [Tomcat]
+2023-11-14 23:16:09 [INFO] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 23:16:09 [INFO] - Initializing Spring embedded WebApplicationContext
+2023-11-14 23:16:09 [INFO] - Root WebApplicationContext: initialization completed in 749 ms
+2023-11-14 23:16:09 [INFO] - HikariPool-2 - Starting...
+2023-11-14 23:16:09 [WARN] - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-11-14 23:16:09 [INFO] - HikariPool-2 - Start completed.
+2023-11-14 23:16:10 [INFO] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-14 23:16:10 [WARN] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-14 23:16:10 [DEBUG] - 60 mappings in 'requestMappingHandlerMapping'
+2023-11-14 23:16:10 [INFO] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2023-11-14 23:16:10 [INFO] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6460a70e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@19235393, org.springframework.security.web.context.SecurityContextPersistenceFilter@22f69322, org.springframework.security.web.header.HeaderWriterFilter@2c13428a, org.springframework.security.web.authentication.logout.LogoutFilter@7a760649, com.cg.iba.security.JWTAuthenticationFilter@7f6216c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@56651d25, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60d40271, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ebbcd53, org.springframework.security.web.session.SessionManagementFilter@3aa6ce3c, org.springframework.security.web.access.ExceptionTranslationFilter@28ecd34, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41ad2b2b]
+2023-11-14 23:16:10 [INFO] - LiveReload server is running on port 35729
+2023-11-14 23:16:10 [DEBUG] - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-11-14 23:16:10 [DEBUG] - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-11-14 23:16:10 [DEBUG] - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-11-14 23:16:10 [INFO] - Tomcat started on port(s): 5005 (http) with context path ''
+2023-11-14 23:16:10 [INFO] - Context refreshed
+2023-11-14 23:16:10 [INFO] - Found 1 custom documentation plugin(s)
+2023-11-14 23:16:10 [INFO] - Scanning for api listing references
+2023-11-14 23:16:10 [INFO] - Generating unique operation named: getAllMyAccTransactionsUsingGET_1
+2023-11-14 23:16:10 [INFO] - Generating unique operation named: listAllTransactionsUsingGET_1
+2023-11-14 23:16:10 [INFO] - Started InternetBankingApplication in 1.837 seconds (JVM running for 52.11)
+2023-11-14 23:16:10 [INFO] - Condition evaluation unchanged
+2023-11-14 23:18:20 [INFO] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 23:18:20 [INFO] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 23:18:20 [DEBUG] - Detected StandardServletMultipartResolver
+2023-11-14 23:18:20 [DEBUG] - Detected AcceptHeaderLocaleResolver
+2023-11-14 23:18:20 [DEBUG] - Detected FixedThemeResolver
+2023-11-14 23:18:20 [DEBUG] - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@a98c471
+2023-11-14 23:18:20 [DEBUG] - Detected org.springframework.web.servlet.support.SessionFlashMapManager@2d16b1dc
+2023-11-14 23:18:20 [DEBUG] - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2023-11-14 23:18:20 [INFO] - Completed initialization in 5 ms
+2023-11-14 23:18:20 [DEBUG] - GET "/swagger-ui.html", parameters={}
+2023-11-14 23:18:20 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - GET "/webjars/springfox-swagger-ui/springfox.css?v=2.9.2", parameters={masked}
+2023-11-14 23:18:21 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - GET "/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2", parameters={masked}
+2023-11-14 23:18:21 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:21 [DEBUG] - GET "/webjars/springfox-swagger-ui/springfox.js?v=2.9.2", parameters={masked}
+2023-11-14 23:18:21 [DEBUG] - GET "/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2", parameters={masked}
+2023-11-14 23:18:21 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:21 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - GET "/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2", parameters={masked}
+2023-11-14 23:18:21 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - GET "/swagger-resources/configuration/ui", parameters={}
+2023-11-14 23:18:21 [DEBUG] - Mapped to springfox.documentation.swagger.web.ApiResourceController#uiConfiguration()
+2023-11-14 23:18:21 [DEBUG] - Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 23:18:21 [DEBUG] - Writing [springfox.documentation.swagger.web.UiConfiguration@94ad2dd]
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - GET "/swagger-resources/configuration/security", parameters={}
+2023-11-14 23:18:21 [DEBUG] - Mapped to springfox.documentation.swagger.web.ApiResourceController#securityConfiguration()
+2023-11-14 23:18:21 [DEBUG] - Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 23:18:21 [DEBUG] - Writing [springfox.documentation.swagger.web.SecurityConfiguration@217e0c91]
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - GET "/swagger-resources", parameters={}
+2023-11-14 23:18:21 [DEBUG] - Mapped to springfox.documentation.swagger.web.ApiResourceController#swaggerResources()
+2023-11-14 23:18:21 [DEBUG] - Using 'application/json', given [application/json] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 23:18:21 [DEBUG] - Writing [[springfox.documentation.swagger.web.SwaggerResource@62690d12]]
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - GET "/v2/api-docs", parameters={}
+2023-11-14 23:18:21 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2", parameters={}
+2023-11-14 23:18:21 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - Using 'application/json', given [application/json, */*] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 23:18:21 [DEBUG] - Writing [springfox.documentation.spring.web.json.Json@32bf0dcc]
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2", parameters={}
+2023-11-14 23:18:21 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:21 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2", parameters={}
+2023-11-14 23:18:21 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2", parameters={}
+2023-11-14 23:18:21 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:21 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:21 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:27 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2", parameters={}
+2023-11-14 23:18:27 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:27 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:33 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2", parameters={}
+2023-11-14 23:18:33 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:33 [DEBUG] - Completed 200 OK
+2023-11-14 23:18:35 [DEBUG] - GET "/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2", parameters={}
+2023-11-14 23:18:35 [DEBUG] - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2023-11-14 23:18:35 [DEBUG] - Completed 200 OK
+2023-11-14 23:19:04 [DEBUG] - POST "/user/addnewuser", parameters={}
+2023-11-14 23:19:04 [DEBUG] - Mapped to com.cg.iba.controller.UserRestController#addNewUser(UserRequestSubmitDTO)
+2023-11-14 23:19:04 [DEBUG] - Read "application/json;charset=UTF-8" to [UserRequestSubmitDTO(userName=shub, password=1234, role=CUSTOMER)]
+2023-11-14 23:19:04 [DEBUG] - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2023-11-14 23:19:04 [DEBUG] - Writing [UserResponseDTO(userId=1, userName=shub, password=1234, role=CUSTOMER)]
+2023-11-14 23:19:04 [DEBUG] - Completed 200 OK
