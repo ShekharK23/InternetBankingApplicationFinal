@@ -1,6 +1,7 @@
 package com.cg.iba.serviceimpl;
 
 import java.util.Collections;
+
 import java.util.List;
 
 import java.util.Optional;
@@ -335,7 +336,6 @@ public class AccountServiceImpl implements IAccountService {
 				addCurrentAccount(ca);
 				return ca;
 			}
-
 		}
 		return null;
 	}
@@ -435,5 +435,11 @@ public class AccountServiceImpl implements IAccountService {
 			return account;
 		}
 		return null;
+	}
+
+	@Override
+	public Account getAccountByUserId(long userid) {
+		Account a = accountRepository.findByUserUserId(userid);
+		return a;
 	}
 }

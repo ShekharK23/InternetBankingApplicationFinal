@@ -38,12 +38,11 @@ public class IBASecurityConfig extends WebSecurityConfigurerAdapter {
 				csrf().disable().cors().disable().authorizeRequests().
 
 				antMatchers("/user/**").permitAll()
-				.antMatchers("/admin/**").permitAll()       //hasAuthority("ADMIN")
+				.antMatchers("/admin/**").permitAll()	//hasAuthority("ADMIN")
 				.antMatchers("/customer/**").permitAll()  
-				.antMatchers("/normalUser/**").permitAll()
-				//hasAuthority("CUSTOMER")
+				.antMatchers("/normalUser/**").permitAll()	//hasAuthority("CUSTOMER")
 //				.antMatchers("/customer/**").hasAnyAuthority("ADMIN", "CUSTOMER")
-				.antMatchers("/swagger-ui.html", "/v2/api-docs", "/webjars/**" ,"/swagger-resources/**").permitAll()
+				.antMatchers("/swagger-ui.html", "/v2/api-docs", "/webjars/**","/swagger-resources/**").permitAll()
 
 				.anyRequest().authenticated().and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

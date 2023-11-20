@@ -62,5 +62,7 @@ public interface IAccountService {
 
 	public Account allocateUserToAccount(long accNum, long userId)
 			throws InvalidAccountException, InvalidDetailsException;
+	
+	public Account getAccountByUserId(long userid);
 
 }

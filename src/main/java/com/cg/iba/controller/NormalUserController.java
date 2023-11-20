@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.iba.dto.AccountResponseDTO;
 import com.cg.iba.dto.BeneficiaryResponseDTO;
 import com.cg.iba.dto.DebitCardResponseDTO;
 import com.cg.iba.dto.NomineeResponseDTO;
@@ -35,6 +37,8 @@ import com.cg.iba.service.IBeneficiaryService;
 import com.cg.iba.service.IDebitCardService;
 import com.cg.iba.service.INomineeService;
 import com.cg.iba.service.ITransactionService;
+import com.cg.iba.serviceimpl.AccountServiceImpl;
+import com.cg.iba.util.AccountDTOMapper;
 import com.cg.iba.util.BeneficiaryDTOMapper;
 import com.cg.iba.util.DebitCardResponseDTOConverter;
 import com.cg.iba.util.NomineeDTOMapper;
@@ -46,6 +50,7 @@ import io.swagger.annotations.Contact;
 @RestController
 @RequestMapping("/normalUser")
 @Validated
+@CrossOrigin(origins = {"http://localhost:5005", "http://localhost:4200"},allowedHeaders = "*")
 public class NormalUserController {
 
 	@Autowired
@@ -80,6 +85,9 @@ public class NormalUserController {
 
 	@Autowired
 	TransactionDTOMapper transactionDTOMapper;
+	
+	@Autowired
+	AccountDTOMapper accountDTOMapper;
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -230,4 +238,16 @@ public class NormalUserController {
 			throw new RuntimeException("Internal Server Error", e);
 		}
 	}
+	
+	
+	@ApiOperation(value = "Finding the Account based on User id", response = AccountServiceImpl.class)
+	@GetMapping("/account/userId") // Working
+	public ResponseEntity<AccountResponseDTO> findAccountByuserId(@RequestParam long userId){
+
+		Account account = accountService.getAccountByUserId(userId);
+		AccountResponseDTO dto = accountDTOMapper.getAccountUsingDTO(account);
+		return new ResponseEntity<AccountResponseDTO>(dto, HttpStatus.FOUND);
+		
+	}
+
 }

@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.iba.dto.EMailDTO;
 import com.cg.iba.dto.JWTResponseDTO;
+import com.cg.iba.dto.UserLoginDTO;
 import com.cg.iba.dto.UserRequestSubmitDTO;
 import com.cg.iba.dto.UserResponseDTO;
 import com.cg.iba.entity.EMail;
@@ -33,6 +35,7 @@ import io.swagger.annotations.Contact;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = {"http://localhost:5005", "http://localhost:4200"},allowedHeaders = "*")
 public class UserRestController {
 
 	static int otp;
@@ -57,7 +60,7 @@ public class UserRestController {
 
 	@ApiOperation(value = "Login User", response = Contact.class)
 	@PostMapping("/login")
-	public ResponseEntity<JWTResponseDTO> doLogin(@RequestBody UserRequestSubmitDTO userEntry) throws Exception {
+	public ResponseEntity<JWTResponseDTO> doLogin(@RequestBody UserLoginDTO userEntry) throws Exception {
 		System.out.println("----->> inside public/login " + userEntry);
 		try {
 			authenticationManager.authenticate(
@@ -69,7 +72,8 @@ public class UserRestController {
 		UserDetails userDetails = userServiceImpl.loadUserByUsername(userEntry.getUserName());
 		String token = jwtUtil.generateToken(userDetails);
 		boolean isValid = token != null ? true : false;
-		JWTResponseDTO jwtResponseDTO = new JWTResponseDTO(token, userEntry.getUserName(), isValid);
+		long userId = userServiceImpl.loadUserByUsernameforID(userEntry.getUserName());
+		JWTResponseDTO jwtResponseDTO = new JWTResponseDTO(token, userEntry.getUserName(), isValid, userId);
 		return new ResponseEntity<JWTResponseDTO>(jwtResponseDTO, HttpStatus.OK);
 	}
 

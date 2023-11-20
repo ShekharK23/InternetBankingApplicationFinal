@@ -30,7 +30,7 @@ public class UserRequestSubmitDTO {
 	@Size(min=3,message = "Minimum 03 Characters are allowed")
 	private String password;
 	@Email(message = "Provide Correct Email Id")
-	private String emailId;
+	private String userEmailID;
 	//private String token;
 	private Role role;
 	

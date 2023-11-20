@@ -94,6 +94,12 @@ public class UserServiceImpl implements IUserService {
 		
 	}
 	
+	public long loadUserByUsernameforID(String username) {
+		BankUser user = userRepository.getBankUserByUserName(username);
+		long userId = user.getUserId();
+		return userId;
+	}
+	
 	@Override
 	public BankUser getUserByEmail(String email) {
 		System.out.println("inside repo");
