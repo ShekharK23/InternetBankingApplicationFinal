@@ -21,22 +21,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.iba.dto.AccountResponseDTO;
+import com.cg.iba.dto.AccountUpdateRequestSubmitDTO;
 import com.cg.iba.dto.BeneficiaryRequestDTO;
 import com.cg.iba.dto.BeneficiaryResponseDTO;
+import com.cg.iba.dto.CurrentAccountRequestSubmitDTO;
+import com.cg.iba.dto.CurrentAccountResponseDTO;
 import com.cg.iba.dto.DebitCardResponseDTO;
 import com.cg.iba.dto.NomineeRequestSubmitDTO;
 import com.cg.iba.dto.NomineeResponseDTO;
 import com.cg.iba.dto.PolicyResponseDTO;
 import com.cg.iba.dto.RequestResponseDTO;
 import com.cg.iba.dto.RequestSubmitDTO;
+import com.cg.iba.dto.SavingAccountRequestSubmitDTO;
+import com.cg.iba.dto.SavingAccountResponseDTO;
 import com.cg.iba.dto.TransactionRequestDTO;
 import com.cg.iba.dto.TransactionResponseDTO;
 import com.cg.iba.entity.Account;
 import com.cg.iba.entity.Beneficiary;
+import com.cg.iba.entity.CurrentAccount;
 import com.cg.iba.entity.DebitCard;
 import com.cg.iba.entity.Nominee;
 import com.cg.iba.entity.Policy;
 import com.cg.iba.entity.Request;
+import com.cg.iba.entity.SavingsAccount;
 import com.cg.iba.entity.Transaction;
 import com.cg.iba.exception.DetailsNotFoundException;
 import com.cg.iba.exception.EmptyListException;
@@ -51,12 +59,15 @@ import com.cg.iba.service.INomineeService;
 import com.cg.iba.service.IPolicyService;
 import com.cg.iba.service.IRequestService;
 import com.cg.iba.service.ITransactionService;
+import com.cg.iba.util.AccountDTOMapper;
 import com.cg.iba.util.BeneficiaryDTOMapper;
+import com.cg.iba.util.CurrentAccountDTOMapper;
 import com.cg.iba.util.DebitCardRequestDTOConverter;
 import com.cg.iba.util.DebitCardResponseDTOConverter;
 import com.cg.iba.util.NomineeDTOMapper;
 import com.cg.iba.util.PolicyResponseDTOConverter;
 import com.cg.iba.util.RequestDTOMapper;
+import com.cg.iba.util.SavingsAccountDTOMapper;
 import com.cg.iba.util.TransactionDTOMapper;
 
 import io.swagger.annotations.ApiOperation;
@@ -114,10 +125,134 @@ public class CustomerRestController {
 
 	@Autowired
 	RequestDTOMapper requestDTO;
+	
+	@Autowired
+	SavingsAccountDTOMapper savAccDTO;
 
+	@Autowired
+	CurrentAccountDTOMapper curAccDTO;
+	
+	@Autowired
+	AccountDTOMapper accountDTO;
+	
+	/**
+	 * Account Functionality By Customer
+	 */
+
+	@ApiOperation(value = "Register New Savings Account", notes = "Add all parameters for creating an Savings Account.", response = Contact.class)
+	@PostMapping("saveSavingsAccountDto") // working
+	public ResponseEntity<SavingAccountResponseDTO> saveSavingsAccountDto(
+			@Valid @RequestBody SavingAccountRequestSubmitDTO dto) throws InvalidDetailsException {
+		logger.info("Received request to save Savings Account DTO: {}", dto);
+		if (dto != null) {
+			SavingsAccount a = savAccDTO.setSavingAccountUsingDTO(dto);
+			SavingsAccount sav = accountService.addSavingsAccount(a);
+			SavingAccountResponseDTO resDto = savAccDTO.getSavingAccountUsingDTO(sav);
+			logger.info("Savings Account DTO saved successfully: {}", resDto);
+			return new ResponseEntity<SavingAccountResponseDTO>(resDto, HttpStatus.OK);
+		} else {
+			logger.error("Error saving Savings Account DTO");
+			return null;
+		}
+	}
+
+	@ApiOperation(value = "Register New Current Account", notes = "Add all parameters for creating an Current Account.", response = Contact.class)
+	@PostMapping("saveCurrentAcoountDto") // working
+	public ResponseEntity<CurrentAccountResponseDTO> saveCurrentAcoountDto(
+			@Valid @RequestBody CurrentAccountRequestSubmitDTO dto) throws InvalidDetailsException {
+
+		logger.info("Received request to save Savings Account DTO: {}", dto);
+		if (dto != null) {
+			CurrentAccount a = curAccDTO.setCurrentAccountUsingDTO(dto);
+			CurrentAccount cur = accountService.addCurrentAccount(a);
+			CurrentAccountResponseDTO resDto = curAccDTO.getCurrentAccountUsingDTO(cur);
+			logger.info("Current Account DTO saved successfully: {}", resDto);
+			return new ResponseEntity<CurrentAccountResponseDTO>(resDto, HttpStatus.OK);
+		} else {
+			logger.error("Error saving Current Account DTO");
+			return null;
+		}
+	}
+
+	@ApiOperation(value = "Update the Saving account Details", response = Contact.class)
+	@PutMapping("/updateSavingsAccount/{accountId}") // working
+	public ResponseEntity<SavingAccountResponseDTO> updateSavingsAccount(@PathVariable long accountId,
+			@Valid @RequestBody AccountUpdateRequestSubmitDTO updateDTO) {
+		try {
+			logger.info("Updating savings account with ID: {}", accountId);
+			SavingsAccount updatedAccount = accountService.updateSavingsAccount(accountId, updateDTO);
+			SavingAccountResponseDTO dto = savAccDTO.getSavingAccountUsingDTO(updatedAccount);
+			logger.info("Savings account updated successfully for ID: {}", accountId);
+			return new ResponseEntity<SavingAccountResponseDTO>(dto, HttpStatus.OK);
+		} catch (InvalidDetailsException e) {
+			logger.error("Error updating savings account with ID: {}", accountId, e);
+			return new ResponseEntity<SavingAccountResponseDTO>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@ApiOperation(value = "Update the Current account Details", response = Contact.class)
+	@PutMapping("/updateCurrentAccount/{accountId}") // working
+	public ResponseEntity<CurrentAccountResponseDTO> updateCurrentAccount(@PathVariable long accountId,
+			@Valid @RequestBody AccountUpdateRequestSubmitDTO updateDTO) {
+		try {
+			logger.info("Updating currents account with ID: {}", accountId);
+			CurrentAccount updatedAccount = accountService.updateCurrentAccount(accountId, updateDTO);
+			CurrentAccountResponseDTO res = curAccDTO.getCurrentAccountUsingDTO(updatedAccount);
+			logger.info("Currents account updated successfully for ID: {}", accountId);
+			return new ResponseEntity<CurrentAccountResponseDTO>(res, HttpStatus.OK);
+		} catch (InvalidDetailsException e) {
+			logger.error("Error updating currents account with ID: {}", accountId, e);
+			return new ResponseEntity<CurrentAccountResponseDTO>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@ApiOperation(value = "Delete the Saving account Details", response = Contact.class)
+	@DeleteMapping("/deleteSavingAccount/delete")
+	public ResponseEntity<String> deleteSavingAccount(@RequestBody SavingsAccount savingAccount) {
+		try {
+			boolean status = accountService.closeSavingsAccount(savingAccount);
+			if (status) {
+				String response = "Saving account - " + savingAccount.getAccountId() + " is Closed.";
+				return new ResponseEntity<String>(response, HttpStatus.OK);
+			}
+		} catch (InvalidAccountException e) {
+			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+	}
+
+	@ApiOperation(value = "Delete the Current account Details", response = Contact.class)
+	@DeleteMapping("/deleteCurrentAccount/delete")
+	public ResponseEntity<String> deleteCurrentAccount(@RequestBody CurrentAccount currentAccount) {
+		try {
+			boolean status = accountService.closeCurrentAccount(currentAccount);
+			if (status) {
+				String response = "Current account - " + currentAccount.getAccountId() + " is Closed.";
+				return new ResponseEntity<String>(response, HttpStatus.OK);
+			}
+		} catch (InvalidAccountException e) {
+			System.out.println(e);
+		}
+		return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+	}
+	
+	/**
+	 * Allocate User To Account
+	 */
+	
+	@ApiOperation(value = "Allocate the user to Account", notes = "Add account number and UserId based on which we will perform the below method", response = Contact.class)
+	@PutMapping("/usertoaccount")
+	public ResponseEntity<AccountResponseDTO> allocateUserToAccount(@RequestParam long accNum,
+			@RequestParam long userId) throws InvalidAccountException, InvalidDetailsException {
+		Account acc = accountService.allocateUserToAccount(accNum, userId);
+		AccountResponseDTO dto = accountDTO.getAccountUsingDTO(acc);
+		return new ResponseEntity<AccountResponseDTO>(dto, HttpStatus.OK);
+	}
+	
 	/**
 	 * Debit Card Functionality By Customer
 	 */
+	
 	@ApiOperation(value = "You can change the pin of Debit card", response = Contact.class)
 	@PutMapping("/{debitCardNumber}/change-pin")
 	public ResponseEntity<DebitCardResponseDTO> changePin(@PathVariable long debitCardNumber, @RequestParam int newPin)

@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 import org.springframework.stereotype.Component;
 
 import com.cg.iba.entity.enums.Gender;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,6 +34,7 @@ public class SavingAccountRequestSubmitDTO {
     private Gender gender; 
     @Min(value=2000,message="Minimum Account Balance Should be 2000")
     private double balance;
+ //   @JsonFormat(pattern = "yyyy/MM/dd")
     private LocalDate dateOfOpening;
     
 }

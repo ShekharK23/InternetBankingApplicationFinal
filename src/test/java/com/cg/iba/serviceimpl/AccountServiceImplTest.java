@@ -1,6 +1,7 @@
 package com.cg.iba.serviceimpl;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
@@ -17,8 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import com.cg.iba.dto.CurrentAccountRequestSubmitDTO;
-import com.cg.iba.dto.SavingAccountRequestSubmitDTO;
+import com.cg.iba.dto.AccountUpdateRequestSubmitDTO;
 import com.cg.iba.entity.Account;
 import com.cg.iba.entity.CurrentAccount;
 import com.cg.iba.entity.SavingsAccount;
@@ -74,8 +74,8 @@ public class AccountServiceImplTest {
     void testUpdateSavingsAccount() throws InvalidDetailsException {
  
         long accountId = 1L;
-        SavingAccountRequestSubmitDTO savingRequestDTO = new SavingAccountRequestSubmitDTO();
-        savingRequestDTO.setAccountHolderName("Shubham");
+        AccountUpdateRequestSubmitDTO updateDTO = new AccountUpdateRequestSubmitDTO();
+        updateDTO.setAccountHolderName("Shubham");
 
         SavingsAccount existingAccount = new SavingsAccount();
         existingAccount.setAccountId(accountId);
@@ -83,7 +83,7 @@ public class AccountServiceImplTest {
         when(accountRepository.findById(accountId)).thenReturn(Optional.of(existingAccount));
         when(accountRepository.save(any(SavingsAccount.class))).thenReturn(existingAccount);
 
-        SavingsAccount updatedAccount = accountService.updateSavingsAccount(accountId, savingRequestDTO);
+        SavingsAccount updatedAccount = accountService.updateSavingsAccount(accountId, updateDTO);
 
         assertNotNull(updatedAccount);
         assertEquals("Shubham", updatedAccount.getAccountHolderName());
@@ -97,10 +97,10 @@ public class AccountServiceImplTest {
 	void testUpdateCurrentAccount() throws InvalidDetailsException {
 		
 		long accountId = 1L;
-		CurrentAccountRequestSubmitDTO currentRequestDTO = new CurrentAccountRequestSubmitDTO();
-		currentRequestDTO.setAccountHolderName("Shubham");
-		currentRequestDTO.setPhoneNo("1234567890");
-		currentRequestDTO.setEmailId("shubham@gmail.com");
+		AccountUpdateRequestSubmitDTO updateDTO = new AccountUpdateRequestSubmitDTO();
+		updateDTO.setAccountHolderName("Shubham");
+		updateDTO.setPhoneNo("1234567890");
+		updateDTO.setEmailId("shubham@gmail.com");
 		
 		CurrentAccount existingAccount = new CurrentAccount();
 		existingAccount.setAccountId(accountId);
@@ -108,7 +108,7 @@ public class AccountServiceImplTest {
 		when(accountRepository.findById(accountId)).thenReturn(Optional.of(existingAccount));
 		when(accountRepository.save(any(CurrentAccount.class))).thenReturn(existingAccount);
 		
-		CurrentAccount updatedAccount = accountService.updateCurrentAccount(accountId, currentRequestDTO);
+		CurrentAccount updatedAccount = accountService.updateCurrentAccount(accountId, updateDTO);
 		
 		assertNotNull(updatedAccount);
 		assertEquals("Shubham", updatedAccount.getAccountHolderName());
@@ -124,12 +124,12 @@ public class AccountServiceImplTest {
     void testUpdateSavingsAccountException() {
 
         long accountId = 1L;
-        SavingAccountRequestSubmitDTO savingRequestDTO = new SavingAccountRequestSubmitDTO();
+        AccountUpdateRequestSubmitDTO updateDTO = new AccountUpdateRequestSubmitDTO();
 
         when(accountRepository.findById(accountId)).thenReturn(Optional.empty());
 
         assertThrows(InvalidDetailsException.class, () -> {
-            accountService.updateSavingsAccount(accountId, savingRequestDTO);
+            accountService.updateSavingsAccount(accountId, updateDTO);
         });
 
         verify(accountRepository, times(1)).findById(accountId);
@@ -141,12 +141,12 @@ public class AccountServiceImplTest {
     void testUpdateCurrentAccountException() {
 
         long accountId = 1L;
-        CurrentAccountRequestSubmitDTO currentRequestDTO = new CurrentAccountRequestSubmitDTO();
+        AccountUpdateRequestSubmitDTO updateDTO = new AccountUpdateRequestSubmitDTO();
 
         when(accountRepository.findById(accountId)).thenReturn(Optional.empty());
 
         assertThrows(InvalidDetailsException.class, () -> {
-            accountService.updateCurrentAccount(accountId, currentRequestDTO);
+            accountService.updateCurrentAccount(accountId, updateDTO);
         });
 
         verify(accountRepository, times(1)).findById(accountId);

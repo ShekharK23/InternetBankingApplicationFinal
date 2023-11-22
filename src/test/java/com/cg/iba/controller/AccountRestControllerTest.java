@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import com.cg.iba.dto.AccountUpdateRequestSubmitDTO;
 import com.cg.iba.dto.CurrentAccountRequestSubmitDTO;
 import com.cg.iba.dto.SavingAccountRequestSubmitDTO;
 import com.cg.iba.entity.Account;
@@ -52,6 +53,9 @@ public class AccountRestControllerTest {
 	private CurrentAccountRequestSubmitDTO saveInputCur;
 	private CurrentAccountRequestSubmitDTO saveOutputCur;
 	
+	private AccountUpdateRequestSubmitDTO input;
+	private AccountUpdateRequestSubmitDTO output;
+	
 	@BeforeEach
 	void setup()
 	{
@@ -59,6 +63,8 @@ public class AccountRestControllerTest {
 		saveOutputSav = new SavingAccountRequestSubmitDTO("Shubham", "1234567890", "shub@gmail.com", 23, Gender.MALE, 1234567, null);
 		saveInputCur = new CurrentAccountRequestSubmitDTO("Shubham", "1234567890", "shub@gmail.com", 23, Gender.MALE, 1234567, null);
 		saveOutputCur = new CurrentAccountRequestSubmitDTO("Shubham", "1234567890", "shub@gmail.com", 23, Gender.MALE, 1234567, null);
+		input = new AccountUpdateRequestSubmitDTO("Shubham", "1234567890", "shub@gmail.com", 23, Gender.MALE);
+		output = new AccountUpdateRequestSubmitDTO("Shubham", "1234567890", "shub@gmail.com", 23, Gender.MALE);
 	}
 	
 	@Test
@@ -116,7 +122,7 @@ public class AccountRestControllerTest {
         long accountId = 1L;
         SavingsAccount updatedAccount = saDTOMapper.setSavingAccountUsingDTO(saveOutputSav);
 
-        Mockito.when(accountServiceMock.updateSavingsAccount(accountId, saveInputSav)).thenReturn(updatedAccount);
+        Mockito.when(accountServiceMock.updateSavingsAccount(accountId, input)).thenReturn(updatedAccount);
 
 		mockmvc.perform(
 				MockMvcRequestBuilders.put("/updateSavingsAccount/{accountId}", accountId).
@@ -138,7 +144,7 @@ public class AccountRestControllerTest {
     void testUpdateSavingsAccountInvalidDetailsException() throws Exception{
         long accountId = 1L;
 
-        when(accountServiceMock.updateSavingsAccount(accountId, saveInputSav))
+        when(accountServiceMock.updateSavingsAccount(accountId, input))
                 .thenThrow(new InvalidDetailsException("Invalid details", ""));
 
         mockmvc.perform(
@@ -163,7 +169,7 @@ public class AccountRestControllerTest {
         long accountId = 1L;
         CurrentAccount updatedAccount = caDTOMapper.setCurrentAccountUsingDTO(saveOutputCur);
 
-        Mockito.when(accountServiceMock.updateCurrentAccount(accountId, saveInputCur)).thenReturn(updatedAccount);
+        Mockito.when(accountServiceMock.updateCurrentAccount(accountId, input)).thenReturn(updatedAccount);
 
 		mockmvc.perform(
 				MockMvcRequestBuilders.put("/updateCurrentAccount/{accountId}", accountId).
@@ -185,7 +191,7 @@ public class AccountRestControllerTest {
     void testUpdateCurrentAccountInvalidDetailsException() throws Exception{
         long accountId = 1L;
 
-        when(accountServiceMock.updateSavingsAccount(accountId, saveInputSav))
+        when(accountServiceMock.updateSavingsAccount(accountId, input))
                 .thenThrow(new InvalidDetailsException("Invalid details", ""));
 
         mockmvc.perform(
