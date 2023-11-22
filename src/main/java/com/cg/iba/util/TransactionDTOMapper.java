@@ -12,7 +12,6 @@ public class TransactionDTOMapper {
 	public Transaction setTransactionUsingDTO(TransactionRequestDTO dto) {
 		Transaction t = new Transaction();
 
-		t.setTransactionStatus(dto.getTransactionStatus());
 		t.setTransactionRemarks(dto.getTransactionRemarks());
 
 		return t;
@@ -20,7 +19,9 @@ public class TransactionDTOMapper {
 	}
 
 	public TransactionResponseDTO getTransactionUsingDTO(Transaction transaction) {
+		
 		TransactionResponseDTO responseDto = new TransactionResponseDTO();
+		
 		responseDto.setTransactionId(transaction.getTransactionId());
 		responseDto.setAmount(transaction.getAmount());
 		responseDto.setTransactionType(transaction.getTransactionType());

@@ -16,6 +16,8 @@ public class DebitCardResponseDTOConverter {
         responseDTO.setIssueDate(debitCard.getIssueDate());
         responseDTO.setExpiryDate(debitCard.getDebitCardExpiryDate());
         responseDTO.setDebitCardLimit(debitCard.getDebitCardLimit());
+        responseDTO.setDebitCardStatus(debitCard.getDebitCardStatus());
+        
         return responseDTO;
     }
 }

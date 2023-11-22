@@ -104,7 +104,7 @@ public class AccountRestControllerTest {
 	@Test
 	@DisplayName("Test Find Account By Account Id ")
 	void testFindAccountById() throws InvalidAccountException {
-		Account a = new Account(1, null, null, null, 0, null, 0, 0, null, null, null, null, null, null, null ,null);		
+		Account a = new Account(1, null, null, null, 0, null, 0, 0, null, null, null, null, null, null, null, null);		
 		Mockito.when(accountServiceMock.findAccountById(1L)).thenReturn(a);
 		Account acc = new Account(1, null, null, null, 0, null, 0, 0, null, null, null, null, null, null, null, null);
 		assertEquals(a,acc);

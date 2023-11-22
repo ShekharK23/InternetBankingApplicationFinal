@@ -2,9 +2,7 @@ package com.cg.iba.serviceimpl;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
@@ -17,7 +15,6 @@ import com.cg.iba.entity.Policy;
 import com.cg.iba.exception.DetailsNotFoundException;
 import com.cg.iba.exception.InvalidDetailsException;
 import com.cg.iba.repository.IPolicyRepository;
-import com.google.common.base.Optional;
 
 @SpringBootTest
 class PolicyServiceImplTest {
