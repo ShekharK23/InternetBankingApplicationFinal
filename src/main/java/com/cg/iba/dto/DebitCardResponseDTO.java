@@ -18,4 +18,5 @@ public class DebitCardResponseDTO {
     private LocalDate issueDate;
     private LocalDate expiryDate;
     private int debitCardLimit;
+    private String debitCardStatus;
 }

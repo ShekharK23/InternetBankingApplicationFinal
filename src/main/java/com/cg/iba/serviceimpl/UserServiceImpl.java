@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.cg.iba.entity.MyUserDetails;
@@ -21,16 +20,15 @@ import com.cg.iba.service.IUserService;
 
 @Service
 public class UserServiceImpl implements IUserService {
-	
+
 	@Autowired
 	IUserRepository userRepository;
-	
+
 	@Autowired
 	IAccountRepository accountRepository;
-	
+
 	@Autowired
 	IAdminRepository adminRepository;
-
 
 	@Override
 	public BankUser addNewUser(BankUser user) throws InvalidDetailsException {
@@ -38,18 +36,18 @@ public class UserServiceImpl implements IUserService {
 			BankUser savedUser = userRepository.save(user);
 			return savedUser;
 		} else {
-			throw new InvalidDetailsException("Invalid Details.", UserServiceImpl.class+"");
+			throw new InvalidDetailsException("Invalid Details.", UserServiceImpl.class + "");
 		}
 	}
 
 	@Override
 	public BankUser signIn(BankUser user) throws InvalidDetailsException {
 		BankUser u = userRepository.findById(user.getUserId())
-				.orElseThrow(() -> new InvalidDetailsException("Invalid UserID Entered.", UserServiceImpl.class+""));
-		if(u.getPassword().equals(user.getPassword()) && u.getRole().equals(user.getRole())) {
+				.orElseThrow(() -> new InvalidDetailsException("Invalid UserID Entered.", UserServiceImpl.class + ""));
+		if (u.getPassword().equals(user.getPassword()) && u.getRole().equals(user.getRole())) {
 			return u;
 		} else {
-			throw new InvalidDetailsException("Enter Correct Password.", UserServiceImpl.class+"");
+			throw new InvalidDetailsException("Enter Correct Password.", UserServiceImpl.class + "");
 		}
 	}
 
@@ -63,7 +61,7 @@ public class UserServiceImpl implements IUserService {
 	@Transactional
 	public BankUser updateUserInfo(Long id, BankUser user) throws InvalidDetailsException {
 		BankUser userDetails = userRepository.findById(id)
-				.orElseThrow(() -> new InvalidDetailsException("Invalid UserId Entered.", UserServiceImpl.class+""));
+				.orElseThrow(() -> new InvalidDetailsException("Invalid UserId Entered.", UserServiceImpl.class + ""));
 		userDetails.setPassword(user.getPassword());
 		return userDetails;
 	}
@@ -71,8 +69,9 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public boolean deleteUserInfo(long userId) throws DetailsNotFoundException {
 		BankUser user = userRepository.findById(userId)
-				.orElseThrow(() -> new DetailsNotFoundException("Details Not found for entered UserId.", UserServiceImpl.class+""));
-		if(user != null) {
+				.orElseThrow(() -> new DetailsNotFoundException("Details Not found for entered UserId.",
+						UserServiceImpl.class + ""));
+		if (user != null) {
 			userRepository.deleteById(user.getUserId());
 			return true;
 		} else {
@@ -80,20 +79,19 @@ public class UserServiceImpl implements IUserService {
 		}
 	}
 
-	@Override  // from UserDetailsService
-	public UserDetails loadUserByUsername(String username) throws 
-	      UsernameNotFoundException {
-		BankUser user =  userRepository.getBankUserByUserName(username);
+	@Override // from UserDetailsService
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		BankUser user = userRepository.getBankUserByUserName(username);
 		return new MyUserDetails(user);
-		
+
 	}
-	
+
 	public long loadUserByUsernameforID(String username) {
 		BankUser user = userRepository.getBankUserByUserName(username);
 		long userId = user.getUserId();
 		return userId;
 	}
-	
+
 	@Override
 	public BankUser getUserByEmail(String email) {
 		BankUser u = userRepository.getBankUserByUserEmailID(email);

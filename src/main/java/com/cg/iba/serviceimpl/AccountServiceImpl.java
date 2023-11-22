@@ -135,6 +135,7 @@ public class AccountServiceImpl implements IAccountService {
 		return null;
 
 	}
+
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
 	@Override
 	@Transactional
@@ -146,45 +147,40 @@ public class AccountServiceImpl implements IAccountService {
 						AccountServiceImpl.class + ""));
 		if (existingAccount instanceof SavingsAccount) {
 			SavingsAccount sa = (SavingsAccount) existingAccount;
-			if (existingAccount.getBalance() < sa.getSavingMinBalance()) {
-				throw new InvalidAmountException("The Minimum Amount should be maintained",
+
+			if (amount <= 0) {
+				throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",
 						AccountServiceImpl.class + "");
-			} else {
-				if (amount <= 0) {
-					throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",
-							AccountServiceImpl.class + "");
-				}
-				existingAccount.setBalance(existingAccount.getBalance() + amount);
-
-				t.setAmount(amount);
-				t.setTransactionType(TransactionType.CREDIT);
-				transactionRepository.save(t);
-
-				accountRepository.save(existingAccount);
-
-				addTransactionToAccount(t.getTransactionId(), accounId);
-				return t;
 			}
+			existingAccount.setBalance(existingAccount.getBalance() + amount);
+
+			t.setAmount(amount);
+			t.setTransactionStatus(TransactionStatus.SUCCESSFUL);
+			t.setTransactionType(TransactionType.CREDIT);
+			transactionRepository.save(t);
+
+			accountRepository.save(existingAccount);
+
+			addTransactionToAccount(t.getTransactionId(), accounId);
+			return t;
 
 		} else if (existingAccount instanceof CurrentAccount) {
 			CurrentAccount currentAcc = (CurrentAccount) existingAccount;
-			if (existingAccount.getBalance() < currentAcc.getCurrentMinBalance()) {
-				throw new InvalidAmountException("The Minimum Amount should be maintained",
+
+			if (amount <= 0) {
+				throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",
 						AccountServiceImpl.class + "");
-			} else {
-				if (amount <= 0) {
-					throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",
-							AccountServiceImpl.class + "");
-				}
-				existingAccount.setBalance(existingAccount.getBalance() + amount);
-				t.setAmount(amount);
-				t.setTransactionType(TransactionType.CREDIT);
-				transactionRepository.save(t);
-				accountRepository.save(existingAccount);
-				addTransactionToAccount(t.getTransactionId(), accounId);
-				return t;
 			}
+			existingAccount.setBalance(existingAccount.getBalance() + amount);
+			t.setAmount(amount);
+			t.setTransactionStatus(TransactionStatus.SUCCESSFUL);
+			t.setTransactionType(TransactionType.CREDIT);
+			transactionRepository.save(t);
+			accountRepository.save(existingAccount);
+			addTransactionToAccount(t.getTransactionId(), accounId);
+			return t;
 		}
+
 		return t;
 	}
 
@@ -438,21 +434,21 @@ public class AccountServiceImpl implements IAccountService {
 		}
 		return null;
 	}
-	
-	//--------------- Additional Methods -------------
+
+	// --------------- Additional Methods -------------
 
 	@Override
 	public Account getAccountByUserId(long userid) {
 		Account a = accountRepository.findByUserUserId(userid);
 		return a;
 	}
-	
+
 	@Override
 	public List<Account> getAccountByAccountStatus(AccountStatus status) {
 		List<Account> listofacc = accountRepository.findByAccountStatus(status);
 		return listofacc;
 	}
-	
+
 	@Override
 	public Account updateAccountStatus(long accountId, AccountStatusUpdateDTO statusDTO)
 			throws InvalidDetailsException {

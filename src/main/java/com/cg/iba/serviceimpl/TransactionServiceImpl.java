@@ -12,6 +12,7 @@ import com.cg.iba.entity.Account;
 import com.cg.iba.entity.CurrentAccount;
 import com.cg.iba.entity.SavingsAccount;
 import com.cg.iba.entity.Transaction;
+import com.cg.iba.entity.enums.TransactionStatus;
 import com.cg.iba.entity.enums.TransactionType;
 import com.cg.iba.exception.DetailsNotFoundException;
 import com.cg.iba.exception.EmptyListException;
@@ -102,6 +103,7 @@ public class TransactionServiceImpl implements ITransactionService {
 				existingAccount.setBalance(existingAccount.getBalance() - amount);
 				t.setAmount(amount);
 				t.setTransactionType(TransactionType.DEBIT);
+				t.setTransactionStatus(TransactionStatus.SUCCESSFUL);
 				transactionRepository.save(t);
 				accountRepository.save(existingAccount);
 				accountService.addTransactionToAccount(t.getTransactionId(), accounId);
@@ -122,7 +124,9 @@ public class TransactionServiceImpl implements ITransactionService {
 				existingAccount.setBalance(existingAccount.getBalance() - amount);
 				t.setAmount(amount);
 				t.setTransactionType(TransactionType.DEBIT);
+				t.setTransactionStatus(TransactionStatus.SUCCESSFUL);
 				transactionRepository.save(t);
+
 				accountRepository.save(existingAccount);
 				accountService.addTransactionToAccount(t.getTransactionId(), accounId);
 				return t;

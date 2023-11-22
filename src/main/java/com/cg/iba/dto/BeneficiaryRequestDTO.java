@@ -1,7 +1,6 @@
 package com.cg.iba.dto;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 

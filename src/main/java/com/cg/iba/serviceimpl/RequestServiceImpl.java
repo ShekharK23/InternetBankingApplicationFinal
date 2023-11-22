@@ -5,15 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cg.iba.dto.AccountStatusUpdateDTO;
 import com.cg.iba.dto.RequestSubmitDTO;
-import com.cg.iba.entity.Account;
-import com.cg.iba.entity.Policy;
 import com.cg.iba.entity.Request;
-import com.cg.iba.entity.Transaction;
-import com.cg.iba.exception.DetailsNotFoundException;
-import com.cg.iba.exception.EmptyListException;
-import com.cg.iba.exception.InvalidDetailsException;
 import com.cg.iba.repository.IRequestRepository;
 import com.cg.iba.service.IRequestService;
 
