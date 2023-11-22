@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cg.iba.dto.AccountStatusUpdateDTO;
 import com.cg.iba.dto.CurrentAccountRequestSubmitDTO;
 import com.cg.iba.dto.SavingAccountRequestSubmitDTO;
 import com.cg.iba.entity.Account;
@@ -450,5 +451,15 @@ public class AccountServiceImpl implements IAccountService {
 	public List<Account> getAccountByAccountStatus(AccountStatus status) {
 		List<Account> listofacc = accountRepository.findByAccountStatus(status);
 		return listofacc;
+	}
+	
+	@Override
+	public Account updateAccountStatus(long accountId, AccountStatusUpdateDTO statusDTO)
+			throws InvalidDetailsException {
+		Account acc = accountRepository.findById(accountId)
+				.orElseThrow(() -> new InvalidDetailsException("Account not found", ""));
+		acc.setAccountStatus(statusDTO.getAccountStatus());
+		Account account = accountRepository.save(acc);
+		return acc;
 	}
 }

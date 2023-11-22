@@ -119,7 +119,7 @@ public class NormalUserController {
 		NomineeResponseDTO dto = nomineeDTOMapper.getNomineeUsingDTO(savedNominee);
 
 		logger.debug("Mapping Nominee to DTO: {}", dto);
-		return new ResponseEntity<>(dto, HttpStatus.FOUND);
+		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Getting all the nominees related to specific Account", response = Contact.class)
@@ -133,7 +133,7 @@ public class NormalUserController {
 			mapped.add(nomineeDTOMapper.getNomineeUsingDTO(nominee));
 		}
 		logger.info("Returning list of nominees for account ID: {}", accountId);
-		return new ResponseEntity<List<NomineeResponseDTO>>(mapped, HttpStatus.FOUND);
+		return new ResponseEntity<List<NomineeResponseDTO>>(mapped, HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Getting the Debit Card Details through debit card number", response = Contact.class)
@@ -169,7 +169,7 @@ public class NormalUserController {
 			}
 
 			logger.info("Successfully retrieved {} beneficiaries for account with ID: {}", mapped.size(), accountid);
-			return new ResponseEntity<>(mapped, HttpStatus.FOUND);
+			return new ResponseEntity<>(mapped, HttpStatus.OK);
 		} catch (InvalidAccountException e) {
 			logger.error("Invalid account ID: {}", accountid, e);
 			throw e;

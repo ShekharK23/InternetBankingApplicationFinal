@@ -63,7 +63,6 @@ public class UserRestController {
 	public ResponseEntity<JWTResponseDTO> doLogin(@RequestBody UserLoginDTO userEntry) throws Exception {
 		System.out.println("----->> inside public/login " + userEntry);
 		try {
-			System.out.println(userEntry.getUserName()+ userEntry.getPassword());
 			authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(userEntry.getUserName(), userEntry.getPassword()));
 			System.out.println();

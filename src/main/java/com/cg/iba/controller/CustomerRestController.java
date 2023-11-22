@@ -27,6 +27,8 @@ import com.cg.iba.dto.DebitCardResponseDTO;
 import com.cg.iba.dto.NomineeRequestSubmitDTO;
 import com.cg.iba.dto.NomineeResponseDTO;
 import com.cg.iba.dto.PolicyResponseDTO;
+import com.cg.iba.dto.RequestResponseDTO;
+import com.cg.iba.dto.RequestSubmitDTO;
 import com.cg.iba.dto.TransactionRequestDTO;
 import com.cg.iba.dto.TransactionResponseDTO;
 import com.cg.iba.entity.Account;
@@ -34,6 +36,7 @@ import com.cg.iba.entity.Beneficiary;
 import com.cg.iba.entity.DebitCard;
 import com.cg.iba.entity.Nominee;
 import com.cg.iba.entity.Policy;
+import com.cg.iba.entity.Request;
 import com.cg.iba.entity.Transaction;
 import com.cg.iba.exception.DetailsNotFoundException;
 import com.cg.iba.exception.EmptyListException;
@@ -46,12 +49,14 @@ import com.cg.iba.service.IBeneficiaryService;
 import com.cg.iba.service.IDebitCardService;
 import com.cg.iba.service.INomineeService;
 import com.cg.iba.service.IPolicyService;
+import com.cg.iba.service.IRequestService;
 import com.cg.iba.service.ITransactionService;
 import com.cg.iba.util.BeneficiaryDTOMapper;
 import com.cg.iba.util.DebitCardRequestDTOConverter;
 import com.cg.iba.util.DebitCardResponseDTOConverter;
 import com.cg.iba.util.NomineeDTOMapper;
 import com.cg.iba.util.PolicyResponseDTOConverter;
+import com.cg.iba.util.RequestDTOMapper;
 import com.cg.iba.util.TransactionDTOMapper;
 
 import io.swagger.annotations.ApiOperation;
@@ -103,6 +108,12 @@ public class CustomerRestController {
 
 	@Autowired
 	TransactionDTOMapper transactionDTOMapper;
+	
+	@Autowired
+	IRequestService requestService;
+
+	@Autowired
+	RequestDTOMapper requestDTO;
 
 	/**
 	 * Debit Card Functionality By Customer
@@ -447,6 +458,17 @@ public class CustomerRestController {
 		accountService.transferMoney(senderAccounId, receiverAccountId, amount, userId, password);
 		return new ResponseEntity<String>("You've Transfered " + amount
 				+ "from Your Account to Beneficiary Account Number_:" + b.getBeneficiaryAccNo(), HttpStatus.OK);
+	}
+	
+	
+	///// ---------------------Additional Functions ----------------------------
+	
+	@PostMapping("/request/save")
+	public ResponseEntity<RequestResponseDTO> saveRequest(@RequestBody RequestSubmitDTO dto) {
+		Request r = requestDTO.setRequestUpdateUsingDTO(dto);
+		Request r1 = requestService.saveRequest(r);
+		RequestResponseDTO resDto = requestDTO.getRequestUsingDTO(r1);
+		return new ResponseEntity<RequestResponseDTO>(resDto, HttpStatus.OK);
 	}
 
 }

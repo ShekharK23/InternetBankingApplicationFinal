@@ -25,12 +25,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.iba.dto.AccountResponseDTO;
+import com.cg.iba.dto.AccountStatusUpdateDTO;
 import com.cg.iba.dto.AdminRequestSubmitDTO;
 import com.cg.iba.dto.AdminResponseDTO;
 import com.cg.iba.dto.CurrentAccountRequestSubmitDTO;
 import com.cg.iba.dto.CurrentAccountResponseDTO;
 import com.cg.iba.dto.DebitCardRequestDTO;
 import com.cg.iba.dto.PolicyResponseDTO;
+import com.cg.iba.dto.RequestResponseDTO;
+import com.cg.iba.dto.RequestSubmitDTO;
 import com.cg.iba.dto.SavingAccountRequestSubmitDTO;
 import com.cg.iba.dto.SavingAccountResponseDTO;
 import com.cg.iba.dto.TransactionResponseDTO;
@@ -39,6 +42,7 @@ import com.cg.iba.entity.Admin;
 import com.cg.iba.entity.CurrentAccount;
 import com.cg.iba.entity.DebitCard;
 import com.cg.iba.entity.Policy;
+import com.cg.iba.entity.Request;
 import com.cg.iba.entity.SavingsAccount;
 import com.cg.iba.entity.Transaction;
 import com.cg.iba.entity.enums.AccountStatus;
@@ -52,6 +56,7 @@ import com.cg.iba.service.IBeneficiaryService;
 import com.cg.iba.service.IDebitCardService;
 import com.cg.iba.service.INomineeService;
 import com.cg.iba.service.IPolicyService;
+import com.cg.iba.service.IRequestService;
 import com.cg.iba.service.ITransactionService;
 import com.cg.iba.service.IUserService;
 import com.cg.iba.util.AccountDTOMapper;
@@ -62,6 +67,7 @@ import com.cg.iba.util.DebitCardRequestDTOConverter;
 import com.cg.iba.util.DebitCardResponseDTOConverter;
 import com.cg.iba.util.NomineeDTOMapper;
 import com.cg.iba.util.PolicyResponseDTOConverter;
+import com.cg.iba.util.RequestDTOMapper;
 import com.cg.iba.util.SavingsAccountDTOMapper;
 import com.cg.iba.util.TransactionDTOMapper;
 import com.cg.iba.util.UserDTOMapper;
@@ -134,6 +140,12 @@ public class AdminRestController {
 	@Autowired
 	TransactionDTOMapper transactionDTOMapper;
 
+	@Autowired
+	IRequestService requestService;
+
+	@Autowired
+	RequestDTOMapper requestDTO;
+	
 	/**
 	 * Admin Work
 	 */
@@ -429,5 +441,42 @@ public class AdminRestController {
 		logger.info("Successfully retrieved all accounts with pending status.");
 		return new ResponseEntity<List<AccountResponseDTO>>(list, HttpStatus.OK);
 	}
+	
+	@ApiOperation(value = "Update the Account Status", response = Contact.class)
+	@PutMapping("/account/status/{accId}") // working
+	public ResponseEntity<AccountResponseDTO> updateAccountStatus(@PathVariable long accId,
+			@Valid @RequestBody AccountStatusUpdateDTO statusDTO) {
+		try {
+			logger.info("Updating savings account with ID: {}", accId);
+			Account updatedAccount = accountService.updateAccountStatus(accId, statusDTO);
+			AccountResponseDTO dto = accountDTO.getAccountUsingDTO(updatedAccount);
+			logger.info("Savings account Status updated successfully for ID: {}", accId);
+			return new ResponseEntity<AccountResponseDTO>(dto, HttpStatus.OK);
+		} catch (InvalidDetailsException e) {
+			logger.error("Error updating Status account with ID: {}", accId, e);
+			return new ResponseEntity<AccountResponseDTO>(HttpStatus.NOT_FOUND);
+		}
+	}
 
+	@DeleteMapping("/remove/request")
+	public void removeRequest(@RequestParam long reqId) {
+		requestService.deleteRequest(reqId);
+	}
+
+	@GetMapping("/all/requests")
+	public ResponseEntity<List<RequestResponseDTO>> listAllRequests() {
+		List<Request> allRequests = requestService.getAllRequests();
+		List<RequestResponseDTO> newlist = allRequests.stream().map(req -> requestDTO.getRequestUsingDTO(req))
+				.collect(Collectors.toList());
+		return new ResponseEntity<List<RequestResponseDTO>>(newlist, HttpStatus.OK);
+	}
+
+	@PutMapping("/request/status/{reqId}")
+	public ResponseEntity<RequestResponseDTO> updateRequestStatus(@PathVariable long reqId,
+			@Valid @RequestBody RequestSubmitDTO statusDTO) {
+		Request updatedRequest = requestService.updateRequestStatus(reqId, statusDTO);
+		RequestResponseDTO dto = requestDTO.getRequestUsingDTO(updatedRequest);
+		return new ResponseEntity<RequestResponseDTO>(dto, HttpStatus.OK);
+	}
+	
 }// end class

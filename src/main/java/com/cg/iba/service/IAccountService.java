@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.cg.iba.dto.AccountStatusUpdateDTO;
 import com.cg.iba.dto.CurrentAccountRequestSubmitDTO;
 import com.cg.iba.dto.SavingAccountRequestSubmitDTO;
 import com.cg.iba.entity.Account;
@@ -67,5 +68,7 @@ public interface IAccountService {
 	//Additional Methods -
 	public Account getAccountByUserId(long userid);
 	public List<Account> getAccountByAccountStatus(AccountStatus status);
+	public Account updateAccountStatus(long accountId, AccountStatusUpdateDTO statusDTO)
+			throws InvalidDetailsException;
 
 }
