@@ -1,14 +1,17 @@
 package com.cg.iba.util;
 
+import java.time.LocalDate;
+
 import org.springframework.stereotype.Component;
 
+import com.cg.iba.dto.AccountRequestSubmitDTO;
 import com.cg.iba.dto.AccountResponseDTO;
 import com.cg.iba.entity.Account;
 
 @Component
 public class AccountDTOMapper {
 
-	public Account setAccountUsingDTO(AccountResponseDTO dto)
+	public Account setAccountUsingDTO(AccountRequestSubmitDTO dto)
 	{
 		Account a = new Account();
 		
@@ -36,7 +39,8 @@ public class AccountDTOMapper {
 		dto.setGender(a.getGender());
 		dto.setInterestRate(a.getInterestRate());
 		dto.setBalance(a.getBalance());
-		dto.setDateOfOpening(a.getDateOfOpening());
+		dto.setDateOfOpening(a.getDateOfOpening().toString());
+		dto.setAccountStatus(a.getAccountStatus());
 
 		return dto;
 	}

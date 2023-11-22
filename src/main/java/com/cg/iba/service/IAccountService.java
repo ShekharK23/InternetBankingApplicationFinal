@@ -11,6 +11,7 @@ import com.cg.iba.entity.SavingsAccount;
 import com.cg.iba.entity.CurrentAccount;
 import com.cg.iba.entity.Policy;
 import com.cg.iba.entity.Transaction;
+import com.cg.iba.entity.enums.AccountStatus;
 import com.cg.iba.exception.DetailsNotFoundException;
 import com.cg.iba.exception.InvalidAccountException;
 import com.cg.iba.exception.InvalidAmountException;
@@ -63,6 +64,8 @@ public interface IAccountService {
 	public Account allocateUserToAccount(long accNum, long userId)
 			throws InvalidAccountException, InvalidDetailsException;
 	
+	//Additional Methods -
 	public Account getAccountByUserId(long userid);
+	public List<Account> getAccountByAccountStatus(AccountStatus status);
 
 }

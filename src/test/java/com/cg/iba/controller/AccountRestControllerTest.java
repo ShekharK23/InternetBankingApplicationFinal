@@ -1,17 +1,7 @@
 package com.cg.iba.controller;
 
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,7 +25,6 @@ import com.cg.iba.exception.InvalidDetailsException;
 import com.cg.iba.serviceimpl.AccountServiceImpl;
 import com.cg.iba.util.CurrentAccountDTOMapper;
 import com.cg.iba.util.SavingsAccountDTOMapper;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -115,9 +104,9 @@ public class AccountRestControllerTest {
 	@Test
 	@DisplayName("Test Find Account By Account Id ")
 	void testFindAccountById() throws InvalidAccountException {
-		Account a = new Account(1, null, null, null, 0, null, 0, 0, null, null, null, null, null, null, null);		
+		Account a = new Account(1, null, null, null, 0, null, 0, 0, null, null, null, null, null, null, null ,null);		
 		Mockito.when(accountServiceMock.findAccountById(1L)).thenReturn(a);
-		Account acc = new Account(1, null, null, null, 0, null, 0, 0, null, null, null, null, null, null, null);
+		Account acc = new Account(1, null, null, null, 0, null, 0, 0, null, null, null, null, null, null, null, null);
 		assertEquals(a,acc);
 	}
 	

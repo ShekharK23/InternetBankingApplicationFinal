@@ -21,7 +21,6 @@ public class CurrentAccountDTOMapper {
 		a.setBalance(dto.getBalance());
 		a.setDateOfOpening(dto.getDateOfOpening());
 		
-		
 		return a;
 	}
 
@@ -37,6 +36,7 @@ public class CurrentAccountDTOMapper {
 		dto.setInterestRate(a.getInterestRate());
 		dto.setBalance(a.getBalance());
 		dto.setDateOfOpening(a.getDateOfOpening());
+		dto.setAccountStatus(a.getAccountStatus());
 		dto.setCurrentMinBalance(a.getCurrentMinBalance());
 		dto.setCurrentFine(a.getCurrentFine());
 

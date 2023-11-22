@@ -18,11 +18,8 @@ public class SavingsAccountDTOMapper {
 		a.setEmailId(dto.getEmailId());
 		a.setAge(dto.getAge());
 		a.setGender(dto.getGender());
-//		a.setInterestRate(dto.getInterestRate());
 		a.setBalance(dto.getBalance());
 		a.setDateOfOpening(dto.getDateOfOpening());
-//		a.setSavingMinBalance(dto.getSavingMinBalance());
-//		a.setSavingFine(dto.getSavingFine());
 		
 		return a;
 	}
@@ -30,6 +27,7 @@ public class SavingsAccountDTOMapper {
 	public SavingAccountResponseDTO getSavingAccountUsingDTO(SavingsAccount a)
 	{
 		SavingAccountResponseDTO dto = new SavingAccountResponseDTO();
+		
 		dto.setAccountId(a.getAccountId());
 		dto.setAccountHolderName(a.getAccountHolderName());
 		dto.setPhoneNo(a.getPhoneNo());
@@ -39,6 +37,7 @@ public class SavingsAccountDTOMapper {
 		dto.setInterestRate(a.getInterestRate());
 		dto.setBalance(a.getBalance());
 		dto.setDateOfOpening(a.getDateOfOpening());
+		dto.setAccountStatus(a.getAccountStatus());
 		dto.setSavingMinBalance(a.getSavingMinBalance());
 		dto.setSavingFine(a.getSavingFine());
 		

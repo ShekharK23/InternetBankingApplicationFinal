@@ -41,6 +41,7 @@ import com.cg.iba.entity.DebitCard;
 import com.cg.iba.entity.Policy;
 import com.cg.iba.entity.SavingsAccount;
 import com.cg.iba.entity.Transaction;
+import com.cg.iba.entity.enums.AccountStatus;
 import com.cg.iba.exception.DetailsNotFoundException;
 import com.cg.iba.exception.EmptyListException;
 import com.cg.iba.exception.InvalidAccountException;
@@ -184,7 +185,7 @@ public class AdminRestController {
 		return new ResponseEntity<List<AdminResponseDTO>>(newlist, HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "Allocate the user to Account", notes = "Add account number and UserId based on which we will perform the below method", response = Contact.class)
+	@ApiOperation(value = "Allocate the user to Admin", notes = "Add Admin number and UserId based on which we will perform the below method", response = Contact.class)
 	@PutMapping("/usertoadmin")
 	public ResponseEntity<AdminResponseDTO> allocateUserToAdmin(@RequestParam long admNum,
 			@RequestParam long userId) throws InvalidAccountException, InvalidDetailsException {
@@ -412,7 +413,21 @@ public class AdminRestController {
 		Transaction saved = transactionService.findTransactionById(transaction_id);
 		TransactionResponseDTO dto = transactionDTOMapper.getTransactionUsingDTO(saved);
 		logger.info("Transaction found with ID: {}", transaction_id);
-		return new ResponseEntity<TransactionResponseDTO>(dto, HttpStatus.FOUND);
+		return new ResponseEntity<TransactionResponseDTO>(dto, HttpStatus.OK);
+	}
+	
+	//-------------- Additional Methods ------------
+	
+	@ApiOperation(value = "Get all the accounts of Bank by pending status of account", response = Contact.class)
+	@GetMapping("/account/pending") // to be check
+	public ResponseEntity<List<AccountResponseDTO>> getAllAccountsByStatus() {
+		logger.info("Attempting to retrieve all accounts by pending status");
+		List<Account> accounts = accountService.getAccountByAccountStatus(AccountStatus.PENDING);
+		List<AccountResponseDTO> list = new ArrayList<AccountResponseDTO>();
+		accounts.stream()
+			.forEach((acc) -> list.add(accountDTO.getAccountUsingDTO(acc)));
+		logger.info("Successfully retrieved all accounts with pending status.");
+		return new ResponseEntity<List<AccountResponseDTO>>(list, HttpStatus.OK);
 	}
 
 }// end class

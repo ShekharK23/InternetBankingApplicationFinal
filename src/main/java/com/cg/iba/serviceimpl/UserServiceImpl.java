@@ -83,13 +83,7 @@ public class UserServiceImpl implements IUserService {
 	@Override  // from UserDetailsService
 	public UserDetails loadUserByUsername(String username) throws 
 	      UsernameNotFoundException {
-		
 		BankUser user =  userRepository.getBankUserByUserName(username);
-		System.out.println(" ");
-		System.out.println("--------Inside App User Service IMP ---------- ");
-		System.out.println(" Arg :- "+username);
-		System.out.println(" From Database "+user);
-		
 		return new MyUserDetails(user);
 		
 	}
@@ -102,9 +96,7 @@ public class UserServiceImpl implements IUserService {
 	
 	@Override
 	public BankUser getUserByEmail(String email) {
-		System.out.println("inside repo");
-		BankUser u = userRepository.getBankUserByUserName(email);
-		System.out.println("inside user created" + u);
+		BankUser u = userRepository.getBankUserByUserEmailID(email);
 		return u;
 	}
 
@@ -118,7 +110,7 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	@Transactional
 	public BankUser updateApplicantPassword(String email, String password) {
-		BankUser user = userRepository.getBankUserByUserName(email);
+		BankUser user = userRepository.getBankUserByUserEmailID(email);
 		if (user != null) {
 			user.setPassword(password);
 			return user;

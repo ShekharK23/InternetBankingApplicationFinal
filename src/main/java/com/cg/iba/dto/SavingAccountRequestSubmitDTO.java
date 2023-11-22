@@ -31,12 +31,8 @@ public class SavingAccountRequestSubmitDTO {
     @Min(value = 10,message = "Age Should be greater than 10 year")
     private int age;
     private Gender gender; 
-   // private final double interestRate;
     @Min(value=2000,message="Minimum Account Balance Should be 2000")
     private double balance;
     private LocalDate dateOfOpening;
-    
-//    private double savingMinBalance;
-//    private double savingFine; 
     
 }

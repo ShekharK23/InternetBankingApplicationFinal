@@ -117,8 +117,7 @@ public class UserRestController {
 	}
 
 	@PostMapping("/getByEmail") // done
-	public boolean getApplicant(@RequestBody UserRequestSubmitDTO dto) {
-
+	public boolean getApplicant(@RequestBody UserLoginDTO dto) {
 		BankUser user = userServiceImpl.getUserByEmail(dto.getUserName());
 		if (user != null) {
 			return true;
@@ -129,14 +128,17 @@ public class UserRestController {
 	
 	@PostMapping("/send") //done
 	public boolean  sendMail(@RequestBody EMail mailstructure) {
+		System.out.println("--------------------"+mailstructure);
 		otp = userServiceImpl.sendOtp();
-		mailstructure.setBody(mailstructure.getBody()+" is here and it is validatted for next 15 min"+otp);
+		mailstructure.setBody(mailstructure.getBody()+" Here is Your otp for resetting Password - "+otp);
 		mailService.sendMail( mailstructure);
 		return true;
 	}
 
 	@PutMapping("/resetpassword") // done
 	public boolean updatePassword(@RequestBody EMailDTO mail) {
+		System.out.println(otp+"---------------------------"+mail.getOtp());
+		System.out.println(mail.getEmail()+"---------"+mail.getPassword());
 		if (otp == mail.getOtp()) {
 			System.out.println("otp verified successfully" + mail.getEmail());
 			BankUser applicant = userServiceImpl.updateApplicantPassword(mail.getEmail(), mail.getPassword());

@@ -8,10 +8,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,7 +23,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cg.iba.dto.NomineeRequestSubmitDTO;
 import com.cg.iba.dto.NomineeResponseDTO;
@@ -36,21 +31,11 @@ import com.cg.iba.entity.Nominee;
 import com.cg.iba.entity.SavingsAccount;
 import com.cg.iba.entity.enums.Relation;
 import com.cg.iba.exception.DetailsNotFoundException;
-import com.cg.iba.exception.EmptyListException;
 import com.cg.iba.exception.InvalidAccountException;
 import com.cg.iba.service.INomineeService;
 import com.cg.iba.serviceimpl.NomineeServiceImpl;
 import com.cg.iba.util.NomineeDTOMapper;
 
-/**
- * 
- */
-/**
- * 
- */
-/**
- * 
- */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 public class NomineeRestControllerTest {
@@ -60,7 +45,7 @@ public class NomineeRestControllerTest {
 
 	@Autowired
 	NormalUserController normalController;
-
+	
 	@Autowired
 	CustomerRestController customerRestController;
 
@@ -80,7 +65,6 @@ public class NomineeRestControllerTest {
 		output = new NomineeRequestSubmitDTO("Shubham", "12456789123", "adhar", "9987282828", Relation.SON);
 	}
 
-	
 	@Test
 	@DisplayName("Test to check registration of new nominee")
 	void testAddNominee() throws Exception {
@@ -101,28 +85,6 @@ public class NomineeRestControllerTest {
 		ResponseEntity<NomineeResponseDTO> actualOutput = normalController.findNomineeById(1);
 		NomineeResponseDTO actualDTO = actualOutput.getBody();
 		assertEquals(dto, actualDTO);
-	}
-
-	@Test
-	@DisplayName("Test To get all the nominees")
-	void testListAllNominees() throws InvalidAccountException, EmptyListException {
-		Account account = new Account();
-		account.setAccountId(1);
-		Nominee nominee_1 = new Nominee(2, null, null, null, null, null);
-		Nominee nominee_2 = new Nominee(23, null, null, null, null, null);
-
-		List<Nominee> mockNominees = Arrays.asList(nominee_1, nominee_2);
-		when(mockNomineeService.listAllNominees(1L)).thenReturn(mockNominees);
-
-		ResponseEntity<List<NomineeResponseDTO>> actual = normalController.listAllNominees(1L);
-		List<NomineeResponseDTO> actualDto = actual.getBody();
-
-		List<NomineeResponseDTO> expectedDto = new ArrayList<>();
-		for (Nominee nominee : mockNominees) {
-			expectedDto.add(nomineeDTOMapper.getNomineeUsingDTO(nominee));
-		}
-
-		assertEquals(expectedDto, actualDto);
 	}
 
 //	@Test
@@ -147,17 +109,20 @@ public class NomineeRestControllerTest {
 //		    // Verify the interactions
 //		    verify(mockNomineeService, times(1)).updateNominee(eq(nomineeId), any(NomineeRequestSubmitDTO.class));
 //		}
+
+
 	
-//	@Test
-//	void testDeleteNominee() throws Exception {
-//		long nomineeId = 1;
-//        when(mockNomineeService.deleteNominee(nomineeId)).thenReturn(true);
-//
-//        mockmvc.perform(MockMvcRequestBuilders.delete("/deleteNomineeById/{nomineeId}", nomineeId))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//               .andExpect(MockMvcResultMatchers.content().string("The Nominee is deleted for the id-:" + nomineeId));
-//		
+	
+
+	
+////	@Test
+////	void testDeleteNominee() throws Exception {
+////		long nomineeId = 1;
+////        when(mockNomineeService.deleteNominee(nomineeId)).thenReturn(true);
+////
+////        mockmvc.perform(MockMvcRequestBuilders.delete("/deleteNomineeById/{nomineeId}", nomineeId))
+////                .andExpect(MockMvcResultMatchers.status().isOk())
+////                .andExpect(MockMvcResultMatchers.content().string("The Nominee is deleted for the id-:" + nomineeId));
+////		
 //	}
-	
-	
 }

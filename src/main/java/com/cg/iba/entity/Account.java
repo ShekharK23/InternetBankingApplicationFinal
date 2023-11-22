@@ -19,6 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.cg.iba.entity.enums.AccountStatus;
 import com.cg.iba.entity.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -51,11 +52,15 @@ public class Account{
 	@Column(name="gender")
     private Gender gender; 
 	
-    private double interestRate=4.5;
+    private double interestRate = 4.5;
     private double balance;
     
+    @Enumerated(EnumType.STRING)
+    @Column(name="accountStatus")
+    private AccountStatus accountStatus = AccountStatus.PENDING;
+    
     @JsonFormat(pattern = "yyyy/MM/dd")
-    private LocalDate  dateOfOpening;
+    private LocalDate dateOfOpening;
     
     @OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "userID")

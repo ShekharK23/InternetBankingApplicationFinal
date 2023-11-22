@@ -6,10 +6,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Optional;
-
-import javax.transaction.Transactional;
-
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +31,6 @@ import com.cg.iba.service.IAccountService;
 @SpringBootTest
 class AccountServiceImplTest2 {
 	@MockBean
-
 	IAccountRepository accountRepository;
 	@MockBean
 	ITransactionRepository transactionRepository;
@@ -71,9 +66,9 @@ class AccountServiceImplTest2 {
 		mockTransaction.setTransactionId(1L);
 
 		// Mock repository responses
-		when(userRepository.findById(1L)).thenReturn(Optional.of(mockUser));
-		when(accountRepository.findById(1L)).thenReturn(Optional.of(mockSenderAccount));
-		when(beneficiaryRepository.findById(2L)).thenReturn(Optional.of(mockReceiverAccount));
+		when(userRepository.findById(1L)).thenReturn(java.util.Optional.of(mockUser));
+		when(accountRepository.findById(1L)).thenReturn(java.util.Optional.of(mockSenderAccount));
+		when(beneficiaryRepository.findById(2L)).thenReturn(java.util.Optional.of(mockReceiverAccount));
 		when(transactionRepository.save(any(Transaction.class))).thenReturn(mockTransaction);
 
 		// Perform the test
@@ -84,8 +79,6 @@ class AccountServiceImplTest2 {
 		assertEquals(500.0, mockSenderAccount.getBalance());
 	}
 
-	@Test
-	
 	void testDeposit() throws InvalidAccountException, InvalidAmountException, InvalidDetailsException {
 
 		SavingsAccount mockExistingAccount = new SavingsAccount();
@@ -94,9 +87,9 @@ class AccountServiceImplTest2 {
 		mockExistingAccount.setSavingMinBalance(100.0);
 
 		Transaction mockTransaction = new Transaction();
-		mockTransaction.setTransactionId(2L);
+		mockTransaction.setTransactionId(1L);
 
-		when(accountRepository.findById(1L)).thenReturn(Optional.of(mockExistingAccount));
+		when(accountRepository.findById(1L)).thenReturn(java.util.Optional.of(mockExistingAccount));
 		when(transactionRepository.save(any(Transaction.class))).thenReturn(mockTransaction);
 
 		Transaction result = accountService.deposit(1L, 500.0, new Transaction());
@@ -105,7 +98,4 @@ class AccountServiceImplTest2 {
 		assertEquals(TransactionType.CREDIT, result.getTransactionType());
 		assertEquals(1500.0, mockExistingAccount.getBalance());
 	}
-	
-	
-
 }

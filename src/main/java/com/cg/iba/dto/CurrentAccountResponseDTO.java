@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import org.springframework.stereotype.Component;
 
+import com.cg.iba.entity.enums.AccountStatus;
 import com.cg.iba.entity.enums.Gender;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class CurrentAccountResponseDTO {
 	private double interestRate;
 	private double balance;
 	private LocalDate dateOfOpening;
+	private AccountStatus accountStatus;
 
 	private double currentMinBalance;
 	private double currentFine;

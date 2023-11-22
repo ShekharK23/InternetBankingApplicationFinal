@@ -22,6 +22,7 @@ import com.cg.iba.entity.Policy;
 import com.cg.iba.entity.SavingsAccount;
 import com.cg.iba.entity.Transaction;
 import com.cg.iba.entity.BankUser;
+import com.cg.iba.entity.enums.AccountStatus;
 import com.cg.iba.entity.enums.Role;
 import com.cg.iba.entity.enums.TransactionStatus;
 import com.cg.iba.entity.enums.TransactionType;
@@ -90,8 +91,9 @@ public class AccountServiceImpl implements IAccountService {
 					throw new LowBalanceException("The Minimum Amount should be maintained",
 							AccountServiceImpl.class + "");
 				} else {
-					if(amount<=0) {
-						throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",AccountServiceImpl.class+"");
+					if (amount <= 0) {
+						throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",
+								AccountServiceImpl.class + "");
 					}
 					senderAccount.setBalance(senderAccount.getBalance() - amount);
 					Transaction t = new Transaction();
@@ -111,8 +113,9 @@ public class AccountServiceImpl implements IAccountService {
 					throw new LowBalanceException("The Minimum Amount should be maintained",
 							AccountServiceImpl.class + "");
 				} else {
-					if(amount<=0) {
-						throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",AccountServiceImpl.class+"");
+					if (amount <= 0) {
+						throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",
+								AccountServiceImpl.class + "");
 					}
 					senderAccount.setBalance(senderAccount.getBalance() - amount);
 					Transaction t = new Transaction();
@@ -132,8 +135,6 @@ public class AccountServiceImpl implements IAccountService {
 
 	}
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------------------------------------------------------------------
 	@Override
 	@Transactional
 	public Transaction deposit(long accounId, double amount, Transaction t)
@@ -148,8 +149,9 @@ public class AccountServiceImpl implements IAccountService {
 				throw new InvalidAmountException("The Minimum Amount should be maintained",
 						AccountServiceImpl.class + "");
 			} else {
-				if(amount<=0) {
-					throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",AccountServiceImpl.class+"");
+				if (amount <= 0) {
+					throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",
+							AccountServiceImpl.class + "");
 				}
 				existingAccount.setBalance(existingAccount.getBalance() + amount);
 
@@ -169,8 +171,9 @@ public class AccountServiceImpl implements IAccountService {
 				throw new InvalidAmountException("The Minimum Amount should be maintained",
 						AccountServiceImpl.class + "");
 			} else {
-				if(amount<=0) {
-					throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",AccountServiceImpl.class+"");
+				if (amount <= 0) {
+					throw new InvalidDetailsException("Amount less than or equal to zero cannot be entered",
+							AccountServiceImpl.class + "");
 				}
 				existingAccount.setBalance(existingAccount.getBalance() + amount);
 				t.setAmount(amount);
@@ -241,10 +244,9 @@ public class AccountServiceImpl implements IAccountService {
 			currentAccount.setEmailId(currentRequestDTO.getEmailId());
 			currentAccount.setAge(currentRequestDTO.getAge());
 			currentAccount.setGender(currentRequestDTO.getGender());
-			
+
 			currentAccount.setBalance(currentRequestDTO.getBalance());
 			currentAccount.setDateOfOpening(currentRequestDTO.getDateOfOpening());
-			
 
 			CurrentAccount updatedAccount = accountRepository.save(currentAccount);
 
@@ -301,7 +303,6 @@ public class AccountServiceImpl implements IAccountService {
 		List<Account> accounts = accountRepository.findAll();
 		return accounts;
 	}
-
 
 	@Override
 	@Transactional
@@ -436,10 +437,18 @@ public class AccountServiceImpl implements IAccountService {
 		}
 		return null;
 	}
+	
+	//--------------- Additional Methods -------------
 
 	@Override
 	public Account getAccountByUserId(long userid) {
 		Account a = accountRepository.findByUserUserId(userid);
 		return a;
+	}
+	
+	@Override
+	public List<Account> getAccountByAccountStatus(AccountStatus status) {
+		List<Account> listofacc = accountRepository.findByAccountStatus(status);
+		return listofacc;
 	}
 }

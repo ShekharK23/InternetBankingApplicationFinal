@@ -10,5 +10,7 @@ import com.cg.iba.entity.BankUser;
 public interface IUserRepository extends JpaRepository<BankUser, Long>{
 
 	BankUser getBankUserByUserName(String username);
+
+	BankUser getBankUserByUserEmailID(String email);
 	
 }

@@ -244,9 +244,11 @@ public class NormalUserController {
 	@GetMapping("/account/userId") // Working
 	public ResponseEntity<AccountResponseDTO> findAccountByuserId(@RequestParam long userId){
 
+		System.err.println("Inside service :- "+userId);
 		Account account = accountService.getAccountByUserId(userId);
 		AccountResponseDTO dto = accountDTOMapper.getAccountUsingDTO(account);
-		return new ResponseEntity<AccountResponseDTO>(dto, HttpStatus.FOUND);
+		System.err.println("Inside Service before return "+dto);
+		return new ResponseEntity<AccountResponseDTO>(dto, HttpStatus.OK);
 		
 	}
 

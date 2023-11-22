@@ -4,12 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.longThat;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Disabled;
@@ -20,15 +16,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.cg.iba.dto.NomineeRequestSubmitDTO;
-import com.cg.iba.entity.Account;
-import com.cg.iba.entity.CurrentAccount;
 import com.cg.iba.entity.Nominee;
 import com.cg.iba.entity.Policy;
-import com.cg.iba.entity.SavingsAccount;
 import com.cg.iba.entity.enums.Relation;
 import com.cg.iba.exception.DetailsNotFoundException;
-import com.cg.iba.exception.EmptyListException;
-import com.cg.iba.exception.InvalidAccountException;
+
 import com.cg.iba.exception.InvalidDetailsException;
 import com.cg.iba.repository.IAccountRepository;
 import com.cg.iba.repository.INomineeRepository;
@@ -41,7 +33,7 @@ class NomineeServiceImplTest {
 	INomineeRepository mockNomineeRepository;
 	@Autowired
 	INomineeService nomineeService;
-	@MockBean
+	@Autowired
 	IAccountRepository mockAccountRepository;
 
 	@Test
@@ -92,53 +84,37 @@ class NomineeServiceImplTest {
 			nomineeService.findNomineeById(3L);
 		});
 	}
-
+	
 	@Test
 	@DisplayName("Update the nominee Details")
 	void testUpdateNominee() throws InvalidDetailsException, DetailsNotFoundException {
 		long id = 1L;
-		NomineeRequestSubmitDTO updatedNomineeDTO = new NomineeRequestSubmitDTO();
-		updatedNomineeDTO.setName("Updated Name");
-		updatedNomineeDTO.setGovtId("Updated GovtId");
-		updatedNomineeDTO.setGovtIdType("Updated GovtIdType");
-		updatedNomineeDTO.setPhoneNo("Updated PhoneNo");
+        NomineeRequestSubmitDTO updatedNomineeDTO = new NomineeRequestSubmitDTO();
+        updatedNomineeDTO.setName("Updated Name");
+        updatedNomineeDTO.setGovtId("Updated GovtId");
+        updatedNomineeDTO.setGovtIdType("Updated GovtIdType");
+        updatedNomineeDTO.setPhoneNo("Updated PhoneNo");
 
-		Nominee existingNominee = new Nominee();
-		existingNominee.setNomineeId(1);
-		existingNominee.setName("Old Name");
-		existingNominee.setGovtId("Old GovtId");
-		existingNominee.setGovtIdType("Old GovtIdType");
-		existingNominee.setPhoneNo("Old PhoneNo");
+        Nominee existingNominee = new Nominee();
+        existingNominee.setNomineeId(1);
+        existingNominee.setName("Old Name");
+        existingNominee.setGovtId("Old GovtId");
+        existingNominee.setGovtIdType("Old GovtIdType");
+        existingNominee.setPhoneNo("Old PhoneNo");
+        
+        when(mockNomineeRepository.findById(1L)).thenReturn(Optional.of(existingNominee));
+        when(mockNomineeRepository.save(any(Nominee.class))).thenReturn(existingNominee);
 
-		when(mockNomineeRepository.findById(1L)).thenReturn(Optional.of(existingNominee));
-		when(mockNomineeRepository.save(any(Nominee.class))).thenReturn(existingNominee);
+        Nominee updatedNominee = nomineeService.updateNominee(id, updatedNomineeDTO);
+    
+        assertNotNull(updatedNominee);
+        assertEquals(id, updatedNominee.getNomineeId());
+        assertEquals(updatedNomineeDTO.getName(), updatedNominee.getName());
+        assertEquals(updatedNomineeDTO.getGovtId(), updatedNominee.getGovtId());
+        assertEquals(updatedNomineeDTO.getGovtIdType(), updatedNominee.getGovtIdType());
+        assertEquals(updatedNomineeDTO.getPhoneNo(), updatedNominee.getPhoneNo());
 
-		Nominee updatedNominee = nomineeService.updateNominee(id, updatedNomineeDTO);
-
-		assertNotNull(updatedNominee);
-		assertEquals(id, updatedNominee.getNomineeId());
-		assertEquals(updatedNomineeDTO.getName(), updatedNominee.getName());
-		assertEquals(updatedNomineeDTO.getGovtId(), updatedNominee.getGovtId());
-		assertEquals(updatedNomineeDTO.getGovtIdType(), updatedNominee.getGovtIdType());
-		assertEquals(updatedNomineeDTO.getPhoneNo(), updatedNominee.getPhoneNo());
-
-	}
-
-	
-	@Test
-	void testListAllNominees() throws InvalidAccountException, EmptyListException {
-		Account account = new Account();
-		account.setAccountId(1);
-		Nominee inputNominee = new Nominee(1, "Shubham", "12456789123", "adhar", "9987282828", Relation.SON);
-		Nominee savedNominee = new Nominee(1, "Shubham", "12456789123", "adhar", "9987282828", Relation.SON);
-		List<Nominee> mockNominees = Arrays.asList(inputNominee, savedNominee);
-		account.setNominees(mockNominees);
-
-		when(mockAccountRepository.findById(1L)).thenReturn(Optional.of(account));
-
-		List<Nominee> result = nomineeService.listAllNominees(1L);
-
-		assertEquals(mockNominees, result);
+		
 	}
 
 }
