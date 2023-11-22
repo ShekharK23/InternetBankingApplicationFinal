@@ -52,7 +52,7 @@ public class Account{
 	@Column(name="gender")
     private Gender gender; 
 	
-    private double interestRate = 4.5;
+    private double interestRate = 0.045;
     private double balance;
     
     @Enumerated(EnumType.STRING)

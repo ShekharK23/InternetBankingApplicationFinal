@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.cg.iba.dto.AccountStatusUpdateDTO;
+import com.cg.iba.dto.AccountUpdateRequestSubmitDTO;
 import com.cg.iba.dto.CurrentAccountRequestSubmitDTO;
 import com.cg.iba.dto.SavingAccountRequestSubmitDTO;
 import com.cg.iba.entity.Account;
@@ -26,10 +27,10 @@ public interface IAccountService {
 
 	public CurrentAccount addCurrentAccount(CurrentAccount term) throws InvalidDetailsException;
 
-	public SavingsAccount updateSavingsAccount(long accountId, SavingAccountRequestSubmitDTO savingRequestDTO)
+	public SavingsAccount updateSavingsAccount(long accountId, AccountUpdateRequestSubmitDTO updateDTO)
 			throws InvalidDetailsException;
 
-	public CurrentAccount updateCurrentAccount(long account_id, CurrentAccountRequestSubmitDTO currentRequestDTO)
+	public CurrentAccount updateCurrentAccount(long account_id, AccountUpdateRequestSubmitDTO updateDTO)
 			throws InvalidDetailsException;
 
 	public boolean closeSavingsAccount(SavingsAccount accountNo) throws InvalidAccountException;

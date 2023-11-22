@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.iba.dto.AccountStatusUpdateDTO;
+import com.cg.iba.dto.AccountUpdateRequestSubmitDTO;
 import com.cg.iba.dto.CurrentAccountRequestSubmitDTO;
 import com.cg.iba.dto.SavingAccountRequestSubmitDTO;
 import com.cg.iba.entity.Account;
@@ -201,7 +202,7 @@ public class AccountServiceImpl implements IAccountService {
 //-----------------------------------------------------------------------------------------------------------------------------------------------------	
 	@Override
 	@Transactional
-	public SavingsAccount updateSavingsAccount(long accountId, SavingAccountRequestSubmitDTO savingRequestDTO)
+	public SavingsAccount updateSavingsAccount(long accountId, AccountUpdateRequestSubmitDTO updateDTO)
 			throws InvalidDetailsException {
 		Account existingAccount = accountRepository.findById(accountId)
 				.orElseThrow(() -> new InvalidDetailsException("Account not found", ""));
@@ -209,13 +210,11 @@ public class AccountServiceImpl implements IAccountService {
 		if (existingAccount instanceof SavingsAccount) {
 			SavingsAccount savingsAccount = (SavingsAccount) existingAccount;
 
-			savingsAccount.setAccountHolderName(savingRequestDTO.getAccountHolderName());
-			savingsAccount.setPhoneNo(savingRequestDTO.getPhoneNo());
-			savingsAccount.setEmailId(savingRequestDTO.getEmailId());
-			savingsAccount.setAge(savingRequestDTO.getAge());
-			savingsAccount.setGender(savingRequestDTO.getGender());
-			savingsAccount.setBalance(savingRequestDTO.getBalance());
-			savingsAccount.setDateOfOpening(savingRequestDTO.getDateOfOpening());
+			savingsAccount.setAccountHolderName(updateDTO.getAccountHolderName());
+			savingsAccount.setPhoneNo(updateDTO.getPhoneNo());
+			savingsAccount.setEmailId(updateDTO.getEmailId());
+			savingsAccount.setAge(updateDTO.getAge());
+			savingsAccount.setGender(updateDTO.getGender());
 
 			SavingsAccount updatedAccount = accountRepository.save(savingsAccount);
 
@@ -228,7 +227,7 @@ public class AccountServiceImpl implements IAccountService {
 //-----------------------------------------------------------------------------------------------------------------------------------------------------   
 	@Override
 	@Transactional
-	public CurrentAccount updateCurrentAccount(long accountId, CurrentAccountRequestSubmitDTO currentRequestDTO)
+	public CurrentAccount updateCurrentAccount(long accountId, AccountUpdateRequestSubmitDTO updateDTO)
 			throws InvalidDetailsException {
 		Account existingAccount = accountRepository.findById(accountId)
 				.orElseThrow(() -> new InvalidDetailsException("Account not found", ""));
@@ -236,14 +235,11 @@ public class AccountServiceImpl implements IAccountService {
 		if (existingAccount instanceof CurrentAccount) {
 			CurrentAccount currentAccount = (CurrentAccount) existingAccount;
 
-			currentAccount.setAccountHolderName(currentRequestDTO.getAccountHolderName());
-			currentAccount.setPhoneNo(currentRequestDTO.getPhoneNo());
-			currentAccount.setEmailId(currentRequestDTO.getEmailId());
-			currentAccount.setAge(currentRequestDTO.getAge());
-			currentAccount.setGender(currentRequestDTO.getGender());
-
-			currentAccount.setBalance(currentRequestDTO.getBalance());
-			currentAccount.setDateOfOpening(currentRequestDTO.getDateOfOpening());
+			currentAccount.setAccountHolderName(updateDTO.getAccountHolderName());
+			currentAccount.setPhoneNo(updateDTO.getPhoneNo());
+			currentAccount.setEmailId(updateDTO.getEmailId());
+			currentAccount.setAge(updateDTO.getAge());
+			currentAccount.setGender(updateDTO.getGender());
 
 			CurrentAccount updatedAccount = accountRepository.save(currentAccount);
 

@@ -9,7 +9,6 @@ import javax.validation.constraints.Size;
 import org.springframework.stereotype.Component;
 
 import com.cg.iba.entity.enums.Gender;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,6 +29,7 @@ public class CurrentAccountRequestSubmitDTO {
 
     @Min(value = 10000,message="Minimum 10,000 Balance Should be maintained")
     private double balance;
+//    @JsonFormat(pattern = "yyyy/MM/dd")
     private LocalDate  dateOfOpening;
     
    

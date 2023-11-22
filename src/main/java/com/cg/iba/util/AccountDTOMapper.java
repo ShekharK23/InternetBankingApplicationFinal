@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import com.cg.iba.dto.AccountRequestSubmitDTO;
 import com.cg.iba.dto.AccountResponseDTO;
 import com.cg.iba.dto.AccountStatusUpdateDTO;
-import com.cg.iba.dto.AccountUpdateDTO;
+import com.cg.iba.dto.AccountUpdateRequestSubmitDTO;
 import com.cg.iba.entity.Account;
 
 @Component
@@ -34,7 +34,7 @@ public class AccountDTOMapper {
 		return a;
 	}
 
-	public Account setAccountUpdateUsingDTO(AccountUpdateDTO dto) {
+	public Account setAccountUpdateUsingDTO(AccountUpdateRequestSubmitDTO dto) {
 		Account a = new Account();
 
 		a.setAccountHolderName(dto.getAccountHolderName());
