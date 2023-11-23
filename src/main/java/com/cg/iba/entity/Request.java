@@ -21,7 +21,6 @@ public class Request {
 	private long accountId; 
 	private String accountHolderName;
     private String phoneNo;
-    private String requestType;
     private String status;
     
 }

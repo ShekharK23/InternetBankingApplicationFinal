@@ -16,7 +16,6 @@ public class RequestDTOMapper {
 		r.setAccountHolderName(dto.getAccountHolderName());
 		r.setPhoneNo(dto.getPhoneNo());
 		r.setAccountId(dto.getAccountId());
-		r.setRequestType(dto.getRequestType());;
 		r.setStatus(dto.getStatus());
 	
 		return r;
@@ -30,7 +29,6 @@ public class RequestDTOMapper {
 		dto.setAccountId(r.getAccountId());
 		dto.setAccountHolderName(r.getAccountHolderName());
 		dto.setPhoneNo(r.getPhoneNo());
-		dto.setRequestType(r.getRequestType());
 		dto.setStatus(r.getStatus());
 		
 		return dto;

@@ -32,6 +32,7 @@ import com.cg.iba.dto.DebitCardRequestDTO;
 import com.cg.iba.dto.PolicyResponseDTO;
 import com.cg.iba.dto.RequestResponseDTO;
 import com.cg.iba.dto.RequestSubmitDTO;
+import com.cg.iba.dto.StringResponseDTO;
 import com.cg.iba.dto.TransactionResponseDTO;
 import com.cg.iba.entity.Account;
 import com.cg.iba.entity.Admin;
@@ -133,6 +134,9 @@ public class AdminRestController {
 
 	@Autowired
 	RequestDTOMapper requestDTO;
+	
+	@Autowired
+	StringResponseDTO stringDTO;
 	
 	/**
 	 * Admin Work
@@ -241,12 +245,12 @@ public class AdminRestController {
 	@ApiOperation(value = "Method To Create the new Policy", response = Contact.class)
 	@PostMapping("/policy/save") // working
 
-	public Policy savePolicy(@Valid @RequestBody PolicyResponseDTO dto) throws InvalidDetailsException {
+	public ResponseEntity<Policy> savePolicy(@Valid @RequestBody PolicyResponseDTO dto) throws InvalidDetailsException {
 		logger.info("Received request to save policy with DTO: {}", dto);
 		Policy savedPolicy = policyResponseDTOConverter.setPolicyUsingDTO(dto);
 		Policy policy = policyService.savePolicy(savedPolicy);
 		logger.info("Policy saved successfully: {}", policy);
-		return policy;
+		return new ResponseEntity<Policy>(policy, HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "Method To Update the new Policy", response = Contact.class)
@@ -281,9 +285,10 @@ public class AdminRestController {
 
 	@ApiOperation(value = "To delete the Policy", response = Contact.class)
 	@DeleteMapping("/policy/delete/{policyNumber}") // working
-	public ResponseEntity<String> deletePolicy(@PathVariable long policyNumber) throws DetailsNotFoundException {
+	public ResponseEntity<StringResponseDTO> deletePolicy(@PathVariable long policyNumber) throws DetailsNotFoundException {
 		policyService.deletePolicy(policyNumber);
-		return new ResponseEntity<String>("Policy Deleted", HttpStatus.OK);
+		stringDTO.setStr("Policy Deleted.");
+		return new ResponseEntity<StringResponseDTO>(stringDTO, HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "To get all Policies", response = Contact.class)

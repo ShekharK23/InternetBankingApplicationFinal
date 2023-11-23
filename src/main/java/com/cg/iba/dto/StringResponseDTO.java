@@ -10,11 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RequestSubmitDTO {
-	
-	private long accountId; 
-	private String accountHolderName;
-    private String phoneNo;
-    private String status;
-    
+public class StringResponseDTO {
+
+	private String str;
 }

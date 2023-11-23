@@ -17,6 +17,6 @@ public class BeneficiaryResponseDTO {
 	private long  beneficiaryId;
 	private String beneficiaryName;
 	private long  beneficiaryAccNo;
-	private String IFSC;
+	private String ifsc;
 	private AccountType accountType;
 }

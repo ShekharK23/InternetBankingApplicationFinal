@@ -17,7 +17,6 @@ public class DebitCardRequestDTO {
 
 	@NotNull(message = "Debit pin cannot be null")
 	private int debitCardPin;
-	private LocalDate debitCardExpiryDate;
 	private int debitCardLimit;
 	private String debitCardStatus;
 }

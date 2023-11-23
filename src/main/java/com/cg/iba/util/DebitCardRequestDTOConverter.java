@@ -12,7 +12,6 @@ public class DebitCardRequestDTOConverter {
         DebitCard debitCard = new DebitCard();
         
         debitCard.setDebitCardPin(requestDTO.getDebitCardPin());
-        debitCard.setDebitCardExpiryDate(requestDTO.getDebitCardExpiryDate());
         debitCard.setDebitCardLimit(requestDTO.getDebitCardLimit());
         debitCard.setDebitCardStatus(requestDTO.getDebitCardStatus());
      
