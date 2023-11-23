@@ -16,7 +16,7 @@ public class BeneficiaryDTOMapper {
 		b.setAccountType(dto.getAccountType());
 		b.setBeneficiaryAccNo(dto.getBeneficiaryAccNo());
 		b.setBeneficiaryName(dto.getBeneficiaryName());
-		b.setIFSC(dto.getIFSC());
+		b.setIFSC(dto.getIfsc());
 		
 		return b;
 	}
@@ -28,7 +28,7 @@ public class BeneficiaryDTOMapper {
 		dto.setAccountType(b.getAccountType());
 		dto.setBeneficiaryAccNo(b.getBeneficiaryAccNo());
 		dto.setBeneficiaryName(b.getBeneficiaryName());
-		dto.setIFSC(b.getIFSC());
+		dto.setIfsc(b.getIFSC());
 		dto.setBeneficiaryId(b.getBeneficiaryId());
 		
 		return dto;

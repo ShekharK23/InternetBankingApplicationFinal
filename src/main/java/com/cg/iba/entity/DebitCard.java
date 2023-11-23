@@ -25,11 +25,11 @@ public class DebitCard {
 	@ApiModelProperty(notes = "Unique DebitCard Number of DebitCard")
 	private long debitCardNumber;
 	@ApiModelProperty(notes = "Unique Issue Date of DebitCard")
-	private LocalDate issueDate=LocalDate.now();
+	private LocalDate issueDate = LocalDate.now();
 	@ApiModelProperty(notes = "Unique DebitCard Pin of DebitCard")
 	private int debitCardPin;
 	@ApiModelProperty(notes = "Unique DebitCard Expiry Date of DebitCard")
-	private LocalDate debitCardExpiryDate;
+	private LocalDate debitCardExpiryDate = issueDate.plusYears(5);
 	@ApiModelProperty(notes = "Unique DebitCard Limit of DebitCard")
 	private int debitCardLimit;
 	@ApiModelProperty(notes = "Unique DebitCard Status of DebitCard")

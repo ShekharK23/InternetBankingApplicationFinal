@@ -20,6 +20,6 @@ public class BeneficiaryRequestDTO {
 	@NotNull(message="Account Number cannot be null")
 	private long  beneficiaryAccNo;
 	@NotNull(message="Plese Provide the IFSC code")
-	private String IFSC;
+	private String ifsc;
 	private AccountType accountType;
 }

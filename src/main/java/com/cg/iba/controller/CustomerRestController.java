@@ -35,6 +35,7 @@ import com.cg.iba.dto.RequestResponseDTO;
 import com.cg.iba.dto.RequestSubmitDTO;
 import com.cg.iba.dto.SavingAccountRequestSubmitDTO;
 import com.cg.iba.dto.SavingAccountResponseDTO;
+import com.cg.iba.dto.StringResponseDTO;
 import com.cg.iba.dto.TransactionRequestDTO;
 import com.cg.iba.dto.TransactionResponseDTO;
 import com.cg.iba.entity.Account;
@@ -79,7 +80,7 @@ import org.slf4j.LoggerFactory;
 @RestController
 @RequestMapping("/customer")
 @Validated
-@CrossOrigin(origins = {"http://localhost:5005", "http://localhost:4200"},allowedHeaders = "*")
+@CrossOrigin(origins = { "http://localhost:5005", "http://localhost:4200" }, allowedHeaders = "*")
 public class CustomerRestController {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -119,22 +120,25 @@ public class CustomerRestController {
 
 	@Autowired
 	TransactionDTOMapper transactionDTOMapper;
-	
+
 	@Autowired
 	IRequestService requestService;
 
 	@Autowired
 	RequestDTOMapper requestDTO;
-	
+
 	@Autowired
 	SavingsAccountDTOMapper savAccDTO;
 
 	@Autowired
 	CurrentAccountDTOMapper curAccDTO;
-	
+
 	@Autowired
 	AccountDTOMapper accountDTO;
 	
+	@Autowired
+	StringResponseDTO stringDTO;
+
 	/**
 	 * Account Functionality By Customer
 	 */
@@ -235,11 +239,11 @@ public class CustomerRestController {
 		}
 		return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
 	}
-	
+
 	/**
 	 * Allocate User To Account
 	 */
-	
+
 	@ApiOperation(value = "Allocate the user to Account", notes = "Add account number and UserId based on which we will perform the below method", response = Contact.class)
 	@PutMapping("/usertoaccount")
 	public ResponseEntity<AccountResponseDTO> allocateUserToAccount(@RequestParam long accNum,
@@ -248,11 +252,11 @@ public class CustomerRestController {
 		AccountResponseDTO dto = accountDTO.getAccountUsingDTO(acc);
 		return new ResponseEntity<AccountResponseDTO>(dto, HttpStatus.OK);
 	}
-	
+
 	/**
 	 * Debit Card Functionality By Customer
 	 */
-	
+
 	@ApiOperation(value = "You can change the pin of Debit card", response = Contact.class)
 	@PutMapping("/{debitCardNumber}/change-pin")
 	public ResponseEntity<DebitCardResponseDTO> changePin(@PathVariable long debitCardNumber, @RequestParam int newPin)
@@ -295,22 +299,23 @@ public class CustomerRestController {
 		if (card != null) {
 			DebitCardResponseDTO responseDTO = debitCardResponseConverter.convertToDTO(card);
 			logger.info("Debit card successfully blocked. Returning response.");
-			return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+			return new ResponseEntity<DebitCardResponseDTO>(responseDTO, HttpStatus.OK);
 		} else {
 			logger.warn("Debit card with number {} not found.", debitCardNumber);
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<DebitCardResponseDTO>(HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@ApiOperation(value = "Check the Expiry Of the credit card", response = Contact.class)
 	@GetMapping("/{debitCardNumber}/check-expiry")
-	public ResponseEntity<String> checkExpiry(@PathVariable long debitCardNumber) throws DetailsNotFoundException {
+	public ResponseEntity<StringResponseDTO> checkExpiry(@PathVariable long debitCardNumber) throws DetailsNotFoundException {
 		String expiryStatus = debitCardService.checkExpiry(debitCardNumber);
+		stringDTO.setStr(expiryStatus);
 		if (!expiryStatus.equals("Debit Card Not Allocated")) {
-			return new ResponseEntity<>(expiryStatus, HttpStatus.OK);
+			return new ResponseEntity<StringResponseDTO>(stringDTO, HttpStatus.OK);
 		} else {
 			logger.warn("Debit card not allocated", debitCardNumber);
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<StringResponseDTO>(HttpStatus.NOT_FOUND);
 		}
 	}
 
@@ -390,9 +395,12 @@ public class CustomerRestController {
 
 	@ApiOperation(value = "Delete Nominee By nominee id", response = Contact.class)
 	@DeleteMapping("/deleteNomineeById/{nomineeId}")
-	public ResponseEntity<String> deleteNomineeById(@PathVariable long nomineeId) throws DetailsNotFoundException {
+	public ResponseEntity<StringResponseDTO> deleteNomineeById(@PathVariable long nomineeId)
+			throws DetailsNotFoundException {
 		nomineeService.deleteNominee(nomineeId);
-		return new ResponseEntity<String>("The Nominee is deleted for the id-:" + nomineeId, HttpStatus.ACCEPTED);
+		String str = "The Nominee is deleted for the id-:" + nomineeId;
+		stringDTO.setStr(str);
+		return new ResponseEntity<StringResponseDTO>(stringDTO, HttpStatus.ACCEPTED);
 	}
 
 	@ApiOperation(value = "Allocate the Nominee To Account", response = Contact.class)
@@ -412,6 +420,7 @@ public class CustomerRestController {
 	/**
 	 * Beneficiery Functionality
 	 */
+
 	@ApiOperation(value = "Create new Beneficiary", response = Contact.class)
 	@PostMapping("addBeneficiary")
 	public ResponseEntity<BeneficiaryResponseDTO> addBeneficiaryDto(@Valid @RequestBody BeneficiaryRequestDTO dto)
@@ -569,7 +578,7 @@ public class CustomerRestController {
 
 	@ApiOperation(value = "Withdraw certain amount from Your account", response = Contact.class)
 	@PutMapping("/withdraw")
-	public ResponseEntity<String> withdraw(@RequestParam long accountId, @RequestParam double amount,
+	public ResponseEntity<StringResponseDTO> withdraw(@RequestParam long accountId, @RequestParam double amount,
 			@Valid @RequestBody TransactionRequestDTO transaction)
 			throws InvalidAccountException, LowBalanceException, InvalidDetailsException {
 		logger.info("Withdraw request received for account {} with amount {}", accountId, amount);
@@ -577,27 +586,27 @@ public class CustomerRestController {
 		Transaction saved = transactionService.withdraw(accountId, amount, t);
 
 		logger.info("Withdrawal successful. Amount {} withdrawn from account {}", amount, accountId);
-		return new ResponseEntity<String>("You've Withdrawed " + amount + " from your account " + accountId,
-				HttpStatus.OK);
+		String str1 = "You've Withdrawed " + amount + " from your account " + accountId;
+		stringDTO.setStr(str1);
+		return new ResponseEntity<StringResponseDTO>(stringDTO,HttpStatus.OK);
 
 	}
 
 	@ApiOperation(value = "Transfer the money from one Account to receivers account", response = Contact.class)
 	@PutMapping("/transferMoney")
-	public ResponseEntity<String> transferMoney(@RequestParam long senderAccounId, @RequestParam long receiverAccountId,
+	public ResponseEntity<StringResponseDTO> transferMoney(@RequestParam long senderAccounId, @RequestParam long receiverAccountId,
 			@RequestParam double amount, @RequestParam long userId, String password)
 			throws LowBalanceException, InvalidAccountException, InvalidDetailsException {
-		Transaction t = new Transaction();
-		Beneficiary b = new Beneficiary();
 		logger.info("Transfer method is called and money is sent from current account to Beneficiary Account");
 		accountService.transferMoney(senderAccounId, receiverAccountId, amount, userId, password);
-		return new ResponseEntity<String>("You've Transfered " + amount
-				+ "from Your Account to Beneficiary Account Number_:" + b.getBeneficiaryAccNo(), HttpStatus.OK);
+		String str1 = "You've Transfered " + amount
+				+ "  from Your Account to Beneficiary Account";
+		stringDTO.setStr(str1);
+		return new ResponseEntity<StringResponseDTO>(stringDTO, HttpStatus.OK);
 	}
-	
-	
+
 	///// ---------------------Additional Functions ----------------------------
-	
+
 	@PostMapping("/request/save")
 	public ResponseEntity<RequestResponseDTO> saveRequest(@RequestBody RequestSubmitDTO dto) {
 		Request r = requestDTO.setRequestUpdateUsingDTO(dto);
